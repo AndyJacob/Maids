@@ -26,6 +26,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Dialog.ModalExclusionType;
 import java.awt.Window.Type;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.border.TitledBorder;
 
 
 public class SalatGUI extends JFrame {
@@ -115,7 +118,7 @@ public class SalatGUI extends JFrame {
 		s = new Syltet_array();
 		t = new Tørret_array();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 630, 393);
+		setBounds(100, 100, 660, 393);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -130,10 +133,11 @@ public class SalatGUI extends JFrame {
 		udregn_salat.setLayout(new BorderLayout(0, 0));
 
 		buttom_panel1 = new JPanel();
+		buttom_panel1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		udregn_salat.add(buttom_panel1, BorderLayout.WEST);
 		buttom_panel1.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
-				ColumnSpec.decode("center:190px:grow"),
+				ColumnSpec.decode("center:201px"),
 				ColumnSpec.decode("-10px"),},
 			new RowSpec[] {
 				FormFactory.LINE_GAP_ROWSPEC,
@@ -142,10 +146,6 @@ public class SalatGUI extends JFrame {
 				RowSpec.decode("23px"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("31px"),
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("max(22dlu;default)"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
 		
@@ -197,7 +197,7 @@ public class SalatGUI extends JFrame {
 		buttom_panel1.add(btnNewButton_1, "2, 4, center, center");
 		
 		person_panel = new JPanel();
-		buttom_panel1.add(person_panel, "2, 6, fill, fill");
+		buttom_panel1.add(person_panel, "2, 6, center, fill");
 		
 				lblNewLabel = new JLabel("Antal personer:");
 				person_panel.add(lblNewLabel);
@@ -214,7 +214,7 @@ public class SalatGUI extends JFrame {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("max(55dlu;default)"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("max(80dlu;default)"),
+				ColumnSpec.decode("max(89dlu;default)"),
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("max(59dlu;default)"),},
 			new RowSpec[] {
