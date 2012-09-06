@@ -234,7 +234,8 @@ public class SalatGUI extends JFrame {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
-
+		ingredient_combo_1 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_1, "6, 2, fill, default");
 		catagory_combo_1 = new JComboBox();
 		catagory_combo_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -274,11 +275,12 @@ public class SalatGUI extends JFrame {
 
 		});
 		catagory_combo_1.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		catagory_combo_1.setSelectedIndex(1);
 		dropdown_panel.add(catagory_combo_1, "4, 2, fill, default");
 
-		ingredient_combo_1 = new JComboBox();
-		dropdown_panel.add(ingredient_combo_1, "6, 2, fill, default");
 
+ingredient_combo_2 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_2, "6, 4, fill, default");
 		catagory_combo_2 = new JComboBox();
 		catagory_combo_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -327,11 +329,12 @@ public class SalatGUI extends JFrame {
 		lblG = new JLabel("g");
 		panel.add(lblG);
 		catagory_combo_2.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		catagory_combo_2.setSelectedIndex(4);
 		dropdown_panel.add(catagory_combo_2, "4, 4, fill, default");
-
-		ingredient_combo_2 = new JComboBox();
-		dropdown_panel.add(ingredient_combo_2, "6, 4, fill, default");
-
+		
+		ingredient_combo_3 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_3, "6, 6, fill, default");
+		
 		catagory_combo_3 = new JComboBox();
 		catagory_combo_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -380,10 +383,11 @@ public class SalatGUI extends JFrame {
 		label = new JLabel("g");
 		panel_1.add(label);
 		catagory_combo_3.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		catagory_combo_3.setSelectedIndex(4);
 		dropdown_panel.add(catagory_combo_3, "4, 6, fill, default");
 
-		ingredient_combo_3 = new JComboBox();
-		dropdown_panel.add(ingredient_combo_3, "6, 6, fill, default");
+		ingredient_combo_4 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_4, "6, 8, fill, default");
 
 		catagory_combo_4 = new JComboBox();
 		catagory_combo_4.addActionListener(new ActionListener() {
@@ -433,11 +437,12 @@ public class SalatGUI extends JFrame {
 		label_1 = new JLabel("g");
 		panel_2.add(label_1);
 		catagory_combo_4.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		catagory_combo_4.setSelectedIndex(4);
 		dropdown_panel.add(catagory_combo_4, "4, 8, fill, default");
-
-		ingredient_combo_4 = new JComboBox();
-		dropdown_panel.add(ingredient_combo_4, "6, 8, fill, default");
-
+		
+		ingredient_combo_5 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_5, "6, 10, fill, default");
+		
 		catagory_combo_5 = new JComboBox();
 		catagory_combo_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -486,10 +491,11 @@ public class SalatGUI extends JFrame {
 		label_2 = new JLabel("g");
 		panel_3.add(label_2);
 		catagory_combo_5.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		catagory_combo_5.setSelectedIndex(0);
 		dropdown_panel.add(catagory_combo_5, "4, 10, fill, default");
 
-		ingredient_combo_5 = new JComboBox();
-		dropdown_panel.add(ingredient_combo_5, "6, 10, fill, default");
+		ingredient_combo_6 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_6, "6, 12, fill, default");
 
 		catagory_combo_6 = new JComboBox();
 		catagory_combo_6.addActionListener(new ActionListener() {
@@ -539,10 +545,11 @@ public class SalatGUI extends JFrame {
 		label_3 = new JLabel("g");
 		panel_4.add(label_3);
 		catagory_combo_6.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		catagory_combo_6.setSelectedIndex(3);
 		dropdown_panel.add(catagory_combo_6, "4, 12, fill, default");
 
-		ingredient_combo_6 = new JComboBox();
-		dropdown_panel.add(ingredient_combo_6, "6, 12, fill, default");
+		ingredient_combo_7 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_7, "6, 14, fill, default");
 
 		catagory_combo_7 = new JComboBox();
 		catagory_combo_7.addActionListener(new ActionListener() {
@@ -592,10 +599,11 @@ public class SalatGUI extends JFrame {
 		label_4 = new JLabel("g");
 		panel_5.add(label_4);
 		catagory_combo_7.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		catagory_combo_7.setSelectedIndex(5);
 		dropdown_panel.add(catagory_combo_7, "4, 14, fill, default");
 
-		ingredient_combo_7 = new JComboBox();
-		dropdown_panel.add(ingredient_combo_7, "6, 14, fill, default");
+		ingredient_combo_8 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_8, "6, 16, fill, default");
 
 		catagory_combo_8 = new JComboBox();
 		catagory_combo_8.addActionListener(new ActionListener() {
@@ -645,10 +653,10 @@ public class SalatGUI extends JFrame {
 		label_5 = new JLabel("g");
 		panel_6.add(label_5);
 		catagory_combo_8.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		catagory_combo_8.setSelectedIndex(2);
 		dropdown_panel.add(catagory_combo_8, "4, 16, fill, default");
 
-		ingredient_combo_8 = new JComboBox();
-		dropdown_panel.add(ingredient_combo_8, "6, 16, fill, default");
+
 		
 		panel_8 = new JPanel();
 		dropdown_panel.add(panel_8, "8, 16, fill, fill");
