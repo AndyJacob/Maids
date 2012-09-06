@@ -40,53 +40,53 @@ public class SalatGUI extends JFrame {
 	private Tørret_array t;
 	private JPanel contentPane;
 	private JPanel buttom_panel1;
-	private JButton btnNewButton;
+	private JButton random_button;
 	private JPanel dropdown_panel;
-	private JComboBox comboBox;
-	private JComboBox comboBox_1;
-	private JComboBox comboBox_2;
-	private JComboBox comboBox_3;
-	private JComboBox comboBox_4;
-	private JComboBox comboBox_5;
-	private JComboBox comboBox_6;
-	private JComboBox comboBox_7;
-	private JComboBox comboBox_8;
-	private JComboBox comboBox_9;
-	private JComboBox comboBox_10;
-	private JComboBox comboBox_11;
-	private JComboBox comboBox_12;
-	private JComboBox comboBox_13;
-	private JComboBox comboBox_14;
-	private JComboBox comboBox_15;
+	private JComboBox catagory_combo_1;
+	private JComboBox ingredient_combo_1;
+	private JComboBox catagory_combo_2;
+	private JComboBox catagory_combo_3;
+	private JComboBox catagory_combo_4;
+	private JComboBox catagory_combo_5;
+	private JComboBox catagory_combo_6;
+	private JComboBox catagory_combo_7;
+	private JComboBox catagory_combo_8;
+	private JComboBox ingredient_combo_2;
+	private JComboBox ingredient_combo_3;
+	private JComboBox ingredient_combo_4;
+	private JComboBox ingredient_combo_5;
+	private JComboBox ingredient_combo_6;
+	private JComboBox ingredient_combo_7;
+	private JComboBox ingredient_combo_8;
 	private JPanel panel_7;
 	private JCheckBox chckbxNewCheckBox;
 	private JLabel lblNewLabel;
 	private JPanel person_panel;
-	private JTextField textField;
-	private JButton btnNewButton_1;
+	private JTextField personer_;
+	private JButton calc_button;
 	private JPanel panel;
-	private JTextField textField_1;
+	private JTextField gram_1;
 	private JLabel lblG;
 	private JPanel panel_1;
-	private JTextField textField_2;
+	private JTextField gram_2;
 	private JLabel label;
 	private JPanel panel_2;
-	private JTextField textField_3;
+	private JTextField gram_3;
 	private JLabel label_1;
 	private JPanel panel_3;
-	private JTextField textField_4;
+	private JTextField gram_4;
 	private JLabel label_2;
 	private JPanel panel_4;
-	private JTextField textField_5;
+	private JTextField gram_5;
 	private JLabel label_3;
 	private JPanel panel_5;
-	private JTextField textField_6;
+	private JTextField gram_6;
 	private JLabel label_4;
 	private JPanel panel_6;
-	private JTextField textField_7;
+	private JTextField gram_7;
 	private JLabel label_5;
 	private JPanel panel_8;
-	private JTextField textField_8;
+	private JTextField gram_8;
 	private JLabel label_6;
 
 	/**
@@ -149,32 +149,32 @@ public class SalatGUI extends JFrame {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
 		
-				btnNewButton = new JButton("Tilf\u00E6ldig salat");
-				btnNewButton.addMouseListener(new MouseAdapter() {
+				random_button = new JButton("Tilf\u00E6ldig salat");
+				random_button.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent arg0) {
-						int l = comboBox_1.getSelectedIndex();
+						int l = ingredient_combo_1.getSelectedIndex();
 						Ingerdines mid =null;
-						if(k.getObject(l).getName().equals(comboBox_1.getModel().getSelectedItem()))
+						if(k.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
 						{
 							mid = k.getObject(l);
 						}
-						else if(s.getObject(l).getName().equals(comboBox_1.getModel().getSelectedItem()))
+						else if(s.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
 						{
 							mid = s.getObject(l);
 						}
-						else if(g.getObject(l).getName().equals(comboBox_1.getModel().getSelectedItem()))
+						else if(g.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
 						{
 							mid = g.getObject(l);
 						}
-						else if(t.getObject(l).getName().equals(comboBox_1.getModel().getSelectedItem()))
+						else if(t.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
 						{	
 							mid = t.getObject(l);
 						}
-						else if(f.getObject(l).getName().equals(comboBox_1.getModel().getSelectedItem()))
+						else if(f.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
 						{	
 							mid = f.getObject(l);
 						}
-						else if(ko.getObject(l).getName().equals(comboBox_1.getModel().getSelectedItem()))
+						else if(ko.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
 						{	
 							mid = ko.getObject(l);
 						}
@@ -185,16 +185,16 @@ public class SalatGUI extends JFrame {
 							int u = Integer.parseInt(textField_18.getText());
 
 						textField_9.setText(Integer.toString(Integer.parseInt(mid.getVeagt())*u));
-						textField.setText(mid.getName());
+						personer_.setText(mid.getName());
 
 
 
 					}
 				});
-				buttom_panel1.add(btnNewButton, "2, 2, center, center");
+				buttom_panel1.add(random_button, "2, 2, center, center");
 		
-		btnNewButton_1 = new JButton(" Udregn ");
-		buttom_panel1.add(btnNewButton_1, "2, 4, center, center");
+		calc_button = new JButton(" Udregn ");
+		buttom_panel1.add(calc_button, "2, 4, center, center");
 		
 		person_panel = new JPanel();
 		buttom_panel1.add(person_panel, "2, 6, center, fill");
@@ -202,9 +202,9 @@ public class SalatGUI extends JFrame {
 				lblNewLabel = new JLabel("Antal personer:");
 				person_panel.add(lblNewLabel);
 				
-				textField = new JTextField();
-				person_panel.add(textField);
-				textField.setColumns(5);
+				personer_ = new JTextField();
+				person_panel.add(personer_);
+				personer_.setColumns(5);
 
 		dropdown_panel = new JPanel();
 		udregn_salat.add(dropdown_panel, BorderLayout.CENTER);
@@ -235,83 +235,83 @@ public class SalatGUI extends JFrame {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 
-		comboBox = new JComboBox();
-		comboBox.addActionListener(new ActionListener() {
+		catagory_combo_1 = new JComboBox();
+		catagory_combo_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				comboBox_1.setModel(new DefaultComboBoxModel());
-				comboBox_1.removeAllItems();
-				if(comboBox.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
+				ingredient_combo_1.setModel(new DefaultComboBoxModel());
+				ingredient_combo_1.removeAllItems();
+				if(catagory_combo_1.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
-						comboBox_1.addItem(k.getObject(i).getName());
+						ingredient_combo_1.addItem(k.getObject(i).getName());
 					}
 				}
-				else if(comboBox.getModel().getSelectedItem().toString().equals("Frugt")){
+				else if(catagory_combo_1.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
-						comboBox_1.addItem(f.getObject(i).getName());
+						ingredient_combo_1.addItem(f.getObject(i).getName());
 					}
 				}
-				else if(comboBox.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
+				else if(catagory_combo_1.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
-						comboBox_1.addItem(g.getObject(i).getName());
+						ingredient_combo_1.addItem(g.getObject(i).getName());
 					}
 				}
-				else if(comboBox.getModel().getSelectedItem().toString().equals("Korn")){
+				else if(catagory_combo_1.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
-						comboBox_1.addItem(ko.getObject(i).getName());
+						ingredient_combo_1.addItem(ko.getObject(i).getName());
 					}
 				}
-				else if(comboBox.getModel().getSelectedItem().toString().equals("Syltet")){
+				else if(catagory_combo_1.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
-						comboBox_1.addItem(s.getObject(i).getName());
+						ingredient_combo_1.addItem(s.getObject(i).getName());
 					}
 				}
-				else if(comboBox.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
+				else if(catagory_combo_1.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
-						comboBox_1.addItem(t.getObject(i).getName());
+						ingredient_combo_1.addItem(t.getObject(i).getName());
 					}
 				}
 			}
 
 		});
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
-		dropdown_panel.add(comboBox, "4, 2, fill, default");
+		catagory_combo_1.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		dropdown_panel.add(catagory_combo_1, "4, 2, fill, default");
 
-		comboBox_1 = new JComboBox();
-		dropdown_panel.add(comboBox_1, "6, 2, fill, default");
+		ingredient_combo_1 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_1, "6, 2, fill, default");
 
-		comboBox_2 = new JComboBox();
-		comboBox_2.addActionListener(new ActionListener() {
+		catagory_combo_2 = new JComboBox();
+		catagory_combo_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				comboBox_9.setModel(new DefaultComboBoxModel());
-				comboBox_9.removeAllItems();
-				if(comboBox_2.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
+				ingredient_combo_2.setModel(new DefaultComboBoxModel());
+				ingredient_combo_2.removeAllItems();
+				if(catagory_combo_2.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
-						comboBox_9.addItem(k.getObject(i).getName());
+						ingredient_combo_2.addItem(k.getObject(i).getName());
 					}
 				}
-				else if(comboBox_2.getModel().getSelectedItem().toString().equals("Frugt")){
+				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
-						comboBox_9.addItem(f.getObject(i).getName());
+						ingredient_combo_2.addItem(f.getObject(i).getName());
 					}
 				}
-				else if(comboBox_2.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
+				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
-						comboBox_9.addItem(g.getObject(i).getName());
+						ingredient_combo_2.addItem(g.getObject(i).getName());
 					}
 				}
-				else if(comboBox_2.getModel().getSelectedItem().toString().equals("Korn")){
+				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
-						comboBox_9.addItem(ko.getObject(i).getName());
+						ingredient_combo_2.addItem(ko.getObject(i).getName());
 					}
 				}
-				else if(comboBox_2.getModel().getSelectedItem().toString().equals("Syltet")){
+				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
-						comboBox_9.addItem(s.getObject(i).getName());
+						ingredient_combo_2.addItem(s.getObject(i).getName());
 					}
 				}
-				else if(comboBox_2.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
+				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
-						comboBox_9.addItem(t.getObject(i).getName());
+						ingredient_combo_2.addItem(t.getObject(i).getName());
 					}
 				}
 			}
@@ -320,51 +320,51 @@ public class SalatGUI extends JFrame {
 		panel = new JPanel();
 		dropdown_panel.add(panel, "8, 2, fill, fill");
 		
-		textField_1 = new JTextField();
-		panel.add(textField_1);
-		textField_1.setColumns(6);
+		gram_1 = new JTextField();
+		panel.add(gram_1);
+		gram_1.setColumns(6);
 		
 		lblG = new JLabel("g");
 		panel.add(lblG);
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
-		dropdown_panel.add(comboBox_2, "4, 4, fill, default");
+		catagory_combo_2.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		dropdown_panel.add(catagory_combo_2, "4, 4, fill, default");
 
-		comboBox_9 = new JComboBox();
-		dropdown_panel.add(comboBox_9, "6, 4, fill, default");
+		ingredient_combo_2 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_2, "6, 4, fill, default");
 
-		comboBox_3 = new JComboBox();
-		comboBox_3.addActionListener(new ActionListener() {
+		catagory_combo_3 = new JComboBox();
+		catagory_combo_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBox_10.setModel(new DefaultComboBoxModel());
-				comboBox_10.removeAllItems();
-				if(comboBox_3.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
+				ingredient_combo_3.setModel(new DefaultComboBoxModel());
+				ingredient_combo_3.removeAllItems();
+				if(catagory_combo_3.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
-						comboBox_10.addItem(k.getObject(i).getName());
+						ingredient_combo_3.addItem(k.getObject(i).getName());
 					}
 				}
-				else if(comboBox_3.getModel().getSelectedItem().toString().equals("Frugt")){
+				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
-						comboBox_10.addItem(f.getObject(i).getName());
+						ingredient_combo_3.addItem(f.getObject(i).getName());
 					}
 				}
-				else if(comboBox_3.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
+				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
-						comboBox_10.addItem(g.getObject(i).getName());
+						ingredient_combo_3.addItem(g.getObject(i).getName());
 					}
 				}
-				else if(comboBox_3.getModel().getSelectedItem().toString().equals("Korn")){
+				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
-						comboBox_10.addItem(ko.getObject(i).getName());
+						ingredient_combo_3.addItem(ko.getObject(i).getName());
 					}
 				}
-				else if(comboBox_3.getModel().getSelectedItem().toString().equals("Syltet")){
+				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
-						comboBox_10.addItem(s.getObject(i).getName());
+						ingredient_combo_3.addItem(s.getObject(i).getName());
 					}
 				}
-				else if(comboBox_3.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
+				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
-						comboBox_10.addItem(t.getObject(i).getName());
+						ingredient_combo_3.addItem(t.getObject(i).getName());
 					}
 				}
 			}
@@ -373,51 +373,51 @@ public class SalatGUI extends JFrame {
 		panel_1 = new JPanel();
 		dropdown_panel.add(panel_1, "8, 4, fill, fill");
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(6);
-		panel_1.add(textField_2);
+		gram_2 = new JTextField();
+		gram_2.setColumns(6);
+		panel_1.add(gram_2);
 		
 		label = new JLabel("g");
 		panel_1.add(label);
-		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
-		dropdown_panel.add(comboBox_3, "4, 6, fill, default");
+		catagory_combo_3.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		dropdown_panel.add(catagory_combo_3, "4, 6, fill, default");
 
-		comboBox_10 = new JComboBox();
-		dropdown_panel.add(comboBox_10, "6, 6, fill, default");
+		ingredient_combo_3 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_3, "6, 6, fill, default");
 
-		comboBox_4 = new JComboBox();
-		comboBox_4.addActionListener(new ActionListener() {
+		catagory_combo_4 = new JComboBox();
+		catagory_combo_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBox_11.setModel(new DefaultComboBoxModel());
-				comboBox_11.removeAllItems();
-				if(comboBox_4.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
+				ingredient_combo_4.setModel(new DefaultComboBoxModel());
+				ingredient_combo_4.removeAllItems();
+				if(catagory_combo_4.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
-						comboBox_11.addItem(k.getObject(i).getName());
+						ingredient_combo_4.addItem(k.getObject(i).getName());
 					}
 				}
-				else if(comboBox_4.getModel().getSelectedItem().toString().equals("Frugt")){
+				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
-						comboBox_11.addItem(f.getObject(i).getName());
+						ingredient_combo_4.addItem(f.getObject(i).getName());
 					}
 				}
-				else if(comboBox_4.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
+				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
-						comboBox_11.addItem(g.getObject(i).getName());
+						ingredient_combo_4.addItem(g.getObject(i).getName());
 					}
 				}
-				else if(comboBox_4.getModel().getSelectedItem().toString().equals("Korn")){
+				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
-						comboBox_11.addItem(ko.getObject(i).getName());
+						ingredient_combo_4.addItem(ko.getObject(i).getName());
 					}
 				}
-				else if(comboBox_4.getModel().getSelectedItem().toString().equals("Syltet")){
+				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
-						comboBox_11.addItem(s.getObject(i).getName());
+						ingredient_combo_4.addItem(s.getObject(i).getName());
 					}
 				}
-				else if(comboBox_4.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
+				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
-						comboBox_11.addItem(t.getObject(i).getName());
+						ingredient_combo_4.addItem(t.getObject(i).getName());
 					}
 				}
 			}
@@ -426,51 +426,51 @@ public class SalatGUI extends JFrame {
 		panel_2 = new JPanel();
 		dropdown_panel.add(panel_2, "8, 6, fill, fill");
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(6);
-		panel_2.add(textField_3);
+		gram_3 = new JTextField();
+		gram_3.setColumns(6);
+		panel_2.add(gram_3);
 		
 		label_1 = new JLabel("g");
 		panel_2.add(label_1);
-		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
-		dropdown_panel.add(comboBox_4, "4, 8, fill, default");
+		catagory_combo_4.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		dropdown_panel.add(catagory_combo_4, "4, 8, fill, default");
 
-		comboBox_11 = new JComboBox();
-		dropdown_panel.add(comboBox_11, "6, 8, fill, default");
+		ingredient_combo_4 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_4, "6, 8, fill, default");
 
-		comboBox_5 = new JComboBox();
-		comboBox_5.addActionListener(new ActionListener() {
+		catagory_combo_5 = new JComboBox();
+		catagory_combo_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBox_12.setModel(new DefaultComboBoxModel());
-				comboBox_12.removeAllItems();
-				if(comboBox_5.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
+				ingredient_combo_5.setModel(new DefaultComboBoxModel());
+				ingredient_combo_5.removeAllItems();
+				if(catagory_combo_5.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
-						comboBox_12.addItem(k.getObject(i).getName());
+						ingredient_combo_5.addItem(k.getObject(i).getName());
 					}
 				}
-				else if(comboBox_5.getModel().getSelectedItem().toString().equals("Frugt")){
+				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
-						comboBox_12.addItem(f.getObject(i).getName());
+						ingredient_combo_5.addItem(f.getObject(i).getName());
 					}
 				}
-				else if(comboBox_5.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
+				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
-						comboBox_12.addItem(g.getObject(i).getName());
+						ingredient_combo_5.addItem(g.getObject(i).getName());
 					}
 				}
-				else if(comboBox_5.getModel().getSelectedItem().toString().equals("Korn")){
+				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
-						comboBox_12.addItem(ko.getObject(i).getName());
+						ingredient_combo_5.addItem(ko.getObject(i).getName());
 					}
 				}
-				else if(comboBox_5.getModel().getSelectedItem().toString().equals("Syltet")){
+				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
-						comboBox_12.addItem(s.getObject(i).getName());
+						ingredient_combo_5.addItem(s.getObject(i).getName());
 					}
 				}
-				else if(comboBox_5.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
+				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
-						comboBox_12.addItem(t.getObject(i).getName());
+						ingredient_combo_5.addItem(t.getObject(i).getName());
 					}
 				}
 			}
@@ -479,51 +479,51 @@ public class SalatGUI extends JFrame {
 		panel_3 = new JPanel();
 		dropdown_panel.add(panel_3, "8, 8, fill, fill");
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(6);
-		panel_3.add(textField_4);
+		gram_4 = new JTextField();
+		gram_4.setColumns(6);
+		panel_3.add(gram_4);
 		
 		label_2 = new JLabel("g");
 		panel_3.add(label_2);
-		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
-		dropdown_panel.add(comboBox_5, "4, 10, fill, default");
+		catagory_combo_5.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		dropdown_panel.add(catagory_combo_5, "4, 10, fill, default");
 
-		comboBox_12 = new JComboBox();
-		dropdown_panel.add(comboBox_12, "6, 10, fill, default");
+		ingredient_combo_5 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_5, "6, 10, fill, default");
 
-		comboBox_6 = new JComboBox();
-		comboBox_6.addActionListener(new ActionListener() {
+		catagory_combo_6 = new JComboBox();
+		catagory_combo_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBox_13.setModel(new DefaultComboBoxModel());
-				comboBox_13.removeAllItems();
-				if(comboBox_6.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
+				ingredient_combo_6.setModel(new DefaultComboBoxModel());
+				ingredient_combo_6.removeAllItems();
+				if(catagory_combo_6.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
-						comboBox_13.addItem(k.getObject(i).getName());
+						ingredient_combo_6.addItem(k.getObject(i).getName());
 					}
 				}
-				else if(comboBox_6.getModel().getSelectedItem().toString().equals("Frugt")){
+				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
-						comboBox_13.addItem(f.getObject(i).getName());
+						ingredient_combo_6.addItem(f.getObject(i).getName());
 					}
 				}
-				else if(comboBox_6.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
+				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
-						comboBox_13.addItem(g.getObject(i).getName());
+						ingredient_combo_6.addItem(g.getObject(i).getName());
 					}
 				}
-				else if(comboBox_6.getModel().getSelectedItem().toString().equals("Korn")){
+				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
-						comboBox_13.addItem(ko.getObject(i).getName());
+						ingredient_combo_6.addItem(ko.getObject(i).getName());
 					}
 				}
-				else if(comboBox_6.getModel().getSelectedItem().toString().equals("Syltet")){
+				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
-						comboBox_13.addItem(s.getObject(i).getName());
+						ingredient_combo_6.addItem(s.getObject(i).getName());
 					}
 				}
-				else if(comboBox_6.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
+				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
-						comboBox_13.addItem(t.getObject(i).getName());
+						ingredient_combo_6.addItem(t.getObject(i).getName());
 					}
 				}
 			}
@@ -532,51 +532,51 @@ public class SalatGUI extends JFrame {
 		panel_4 = new JPanel();
 		dropdown_panel.add(panel_4, "8, 10, fill, fill");
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(6);
-		panel_4.add(textField_5);
+		gram_5 = new JTextField();
+		gram_5.setColumns(6);
+		panel_4.add(gram_5);
 		
 		label_3 = new JLabel("g");
 		panel_4.add(label_3);
-		comboBox_6.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
-		dropdown_panel.add(comboBox_6, "4, 12, fill, default");
+		catagory_combo_6.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		dropdown_panel.add(catagory_combo_6, "4, 12, fill, default");
 
-		comboBox_13 = new JComboBox();
-		dropdown_panel.add(comboBox_13, "6, 12, fill, default");
+		ingredient_combo_6 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_6, "6, 12, fill, default");
 
-		comboBox_7 = new JComboBox();
-		comboBox_7.addActionListener(new ActionListener() {
+		catagory_combo_7 = new JComboBox();
+		catagory_combo_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBox_14.setModel(new DefaultComboBoxModel());
-				comboBox_14.removeAllItems();
-				if(comboBox_7.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
+				ingredient_combo_7.setModel(new DefaultComboBoxModel());
+				ingredient_combo_7.removeAllItems();
+				if(catagory_combo_7.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
-						comboBox_14.addItem(k.getObject(i).getName());
+						ingredient_combo_7.addItem(k.getObject(i).getName());
 					}
 				}
-				else if(comboBox_7.getModel().getSelectedItem().toString().equals("Frugt")){
+				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
-						comboBox_14.addItem(f.getObject(i).getName());
+						ingredient_combo_7.addItem(f.getObject(i).getName());
 					}
 				}
-				else if(comboBox_7.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
+				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
-						comboBox_14.addItem(g.getObject(i).getName());
+						ingredient_combo_7.addItem(g.getObject(i).getName());
 					}
 				}
-				else if(comboBox_7.getModel().getSelectedItem().toString().equals("Korn")){
+				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
-						comboBox_14.addItem(ko.getObject(i).getName());
+						ingredient_combo_7.addItem(ko.getObject(i).getName());
 					}
 				}
-				else if(comboBox_7.getModel().getSelectedItem().toString().equals("Syltet")){
+				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
-						comboBox_14.addItem(s.getObject(i).getName());
+						ingredient_combo_7.addItem(s.getObject(i).getName());
 					}
 				}
-				else if(comboBox_7.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
+				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
-						comboBox_14.addItem(t.getObject(i).getName());
+						ingredient_combo_7.addItem(t.getObject(i).getName());
 					}
 				}
 			}
@@ -585,51 +585,51 @@ public class SalatGUI extends JFrame {
 		panel_5 = new JPanel();
 		dropdown_panel.add(panel_5, "8, 12, fill, fill");
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(6);
-		panel_5.add(textField_6);
+		gram_6 = new JTextField();
+		gram_6.setColumns(6);
+		panel_5.add(gram_6);
 		
 		label_4 = new JLabel("g");
 		panel_5.add(label_4);
-		comboBox_7.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
-		dropdown_panel.add(comboBox_7, "4, 14, fill, default");
+		catagory_combo_7.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		dropdown_panel.add(catagory_combo_7, "4, 14, fill, default");
 
-		comboBox_14 = new JComboBox();
-		dropdown_panel.add(comboBox_14, "6, 14, fill, default");
+		ingredient_combo_7 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_7, "6, 14, fill, default");
 
-		comboBox_8 = new JComboBox();
-		comboBox_8.addActionListener(new ActionListener() {
+		catagory_combo_8 = new JComboBox();
+		catagory_combo_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBox_15.setModel(new DefaultComboBoxModel());
-				comboBox_15.removeAllItems();
-				if(comboBox_8.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
+				ingredient_combo_8.setModel(new DefaultComboBoxModel());
+				ingredient_combo_8.removeAllItems();
+				if(catagory_combo_8.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
-						comboBox_15.addItem(k.getObject(i).getName());
+						ingredient_combo_8.addItem(k.getObject(i).getName());
 					}
 				}
-				else if(comboBox_8.getModel().getSelectedItem().toString().equals("Frugt")){
+				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
-						comboBox_15.addItem(f.getObject(i).getName());
+						ingredient_combo_8.addItem(f.getObject(i).getName());
 					}
 				}
-				else if(comboBox_8.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
+				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
-						comboBox_15.addItem(g.getObject(i).getName());
+						ingredient_combo_8.addItem(g.getObject(i).getName());
 					}
 				}
-				else if(comboBox_8.getModel().getSelectedItem().toString().equals("Korn")){
+				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
-						comboBox_15.addItem(ko.getObject(i).getName());
+						ingredient_combo_8.addItem(ko.getObject(i).getName());
 					}
 				}
-				else if(comboBox_8.getModel().getSelectedItem().toString().equals("Syltet")){
+				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
-						comboBox_15.addItem(s.getObject(i).getName());
+						ingredient_combo_8.addItem(s.getObject(i).getName());
 					}
 				}
-				else if(comboBox_8.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
+				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
-						comboBox_15.addItem(t.getObject(i).getName());
+						ingredient_combo_8.addItem(t.getObject(i).getName());
 					}
 				}
 			}
@@ -638,24 +638,24 @@ public class SalatGUI extends JFrame {
 		panel_6 = new JPanel();
 		dropdown_panel.add(panel_6, "8, 14, fill, fill");
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(6);
-		panel_6.add(textField_7);
+		gram_7 = new JTextField();
+		gram_7.setColumns(6);
+		panel_6.add(gram_7);
 		
 		label_5 = new JLabel("g");
 		panel_6.add(label_5);
-		comboBox_8.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
-		dropdown_panel.add(comboBox_8, "4, 16, fill, default");
+		catagory_combo_8.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
+		dropdown_panel.add(catagory_combo_8, "4, 16, fill, default");
 
-		comboBox_15 = new JComboBox();
-		dropdown_panel.add(comboBox_15, "6, 16, fill, default");
+		ingredient_combo_8 = new JComboBox();
+		dropdown_panel.add(ingredient_combo_8, "6, 16, fill, default");
 		
 		panel_8 = new JPanel();
 		dropdown_panel.add(panel_8, "8, 16, fill, fill");
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(6);
-		panel_8.add(textField_8);
+		gram_8 = new JTextField();
+		gram_8.setColumns(6);
+		panel_8.add(gram_8);
 		
 		label_6 = new JLabel("g");
 		panel_8.add(label_6);
