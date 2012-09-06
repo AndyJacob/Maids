@@ -24,6 +24,8 @@ import javax.swing.JTextPane;
 import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Dialog.ModalExclusionType;
+import java.awt.Window.Type;
 
 
 public class SalatGUI extends JFrame {
@@ -59,6 +61,30 @@ public class SalatGUI extends JFrame {
 	private JPanel person_panel;
 	private JTextField textField;
 	private JButton btnNewButton_1;
+	private JPanel panel;
+	private JTextField textField_1;
+	private JLabel lblG;
+	private JPanel panel_1;
+	private JTextField textField_2;
+	private JLabel label;
+	private JPanel panel_2;
+	private JTextField textField_3;
+	private JLabel label_1;
+	private JPanel panel_3;
+	private JTextField textField_4;
+	private JLabel label_2;
+	private JPanel panel_4;
+	private JTextField textField_5;
+	private JLabel label_3;
+	private JPanel panel_5;
+	private JTextField textField_6;
+	private JLabel label_4;
+	private JPanel panel_6;
+	private JTextField textField_7;
+	private JLabel label_5;
+	private JPanel panel_8;
+	private JTextField textField_8;
+	private JLabel label_6;
 
 	/**
 	 * Launch the application.
@@ -80,6 +106,8 @@ public class SalatGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public SalatGUI() {
+		setResizable(false);
+		setType(Type.UTILITY);
 		k = new Kød_array();
 		f = new Frugt_array();
 		g = new Grønt_array();
@@ -87,7 +115,7 @@ public class SalatGUI extends JFrame {
 		s = new Syltet_array();
 		t = new Tørret_array();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 350);
+		setBounds(100, 100, 630, 393);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -186,10 +214,10 @@ public class SalatGUI extends JFrame {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("max(55dlu;default)"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
+				ColumnSpec.decode("max(80dlu;default)"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("max(80dlu;default)"),},
-				new RowSpec[] {
+				ColumnSpec.decode("max(59dlu;default)"),},
+			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -249,7 +277,7 @@ public class SalatGUI extends JFrame {
 		dropdown_panel.add(comboBox, "4, 2, fill, default");
 
 		comboBox_1 = new JComboBox();
-		dropdown_panel.add(comboBox_1, "8, 2, fill, default");
+		dropdown_panel.add(comboBox_1, "6, 2, fill, default");
 
 		comboBox_2 = new JComboBox();
 		comboBox_2.addActionListener(new ActionListener() {
@@ -288,11 +316,21 @@ public class SalatGUI extends JFrame {
 				}
 			}
 		});
+		
+		panel = new JPanel();
+		dropdown_panel.add(panel, "8, 2, fill, fill");
+		
+		textField_1 = new JTextField();
+		panel.add(textField_1);
+		textField_1.setColumns(6);
+		
+		lblG = new JLabel("g");
+		panel.add(lblG);
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
 		dropdown_panel.add(comboBox_2, "4, 4, fill, default");
 
 		comboBox_9 = new JComboBox();
-		dropdown_panel.add(comboBox_9, "8, 4, fill, default");
+		dropdown_panel.add(comboBox_9, "6, 4, fill, default");
 
 		comboBox_3 = new JComboBox();
 		comboBox_3.addActionListener(new ActionListener() {
@@ -331,11 +369,21 @@ public class SalatGUI extends JFrame {
 				}
 			}
 		});
+		
+		panel_1 = new JPanel();
+		dropdown_panel.add(panel_1, "8, 4, fill, fill");
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(6);
+		panel_1.add(textField_2);
+		
+		label = new JLabel("g");
+		panel_1.add(label);
 		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
 		dropdown_panel.add(comboBox_3, "4, 6, fill, default");
 
 		comboBox_10 = new JComboBox();
-		dropdown_panel.add(comboBox_10, "8, 6, fill, default");
+		dropdown_panel.add(comboBox_10, "6, 6, fill, default");
 
 		comboBox_4 = new JComboBox();
 		comboBox_4.addActionListener(new ActionListener() {
@@ -374,11 +422,21 @@ public class SalatGUI extends JFrame {
 				}
 			}
 		});
+		
+		panel_2 = new JPanel();
+		dropdown_panel.add(panel_2, "8, 6, fill, fill");
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(6);
+		panel_2.add(textField_3);
+		
+		label_1 = new JLabel("g");
+		panel_2.add(label_1);
 		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
 		dropdown_panel.add(comboBox_4, "4, 8, fill, default");
 
 		comboBox_11 = new JComboBox();
-		dropdown_panel.add(comboBox_11, "8, 8, fill, default");
+		dropdown_panel.add(comboBox_11, "6, 8, fill, default");
 
 		comboBox_5 = new JComboBox();
 		comboBox_5.addActionListener(new ActionListener() {
@@ -417,11 +475,21 @@ public class SalatGUI extends JFrame {
 				}
 			}
 		});
+		
+		panel_3 = new JPanel();
+		dropdown_panel.add(panel_3, "8, 8, fill, fill");
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(6);
+		panel_3.add(textField_4);
+		
+		label_2 = new JLabel("g");
+		panel_3.add(label_2);
 		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
 		dropdown_panel.add(comboBox_5, "4, 10, fill, default");
 
 		comboBox_12 = new JComboBox();
-		dropdown_panel.add(comboBox_12, "8, 10, fill, default");
+		dropdown_panel.add(comboBox_12, "6, 10, fill, default");
 
 		comboBox_6 = new JComboBox();
 		comboBox_6.addActionListener(new ActionListener() {
@@ -460,11 +528,21 @@ public class SalatGUI extends JFrame {
 				}
 			}
 		});
+		
+		panel_4 = new JPanel();
+		dropdown_panel.add(panel_4, "8, 10, fill, fill");
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(6);
+		panel_4.add(textField_5);
+		
+		label_3 = new JLabel("g");
+		panel_4.add(label_3);
 		comboBox_6.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
 		dropdown_panel.add(comboBox_6, "4, 12, fill, default");
 
 		comboBox_13 = new JComboBox();
-		dropdown_panel.add(comboBox_13, "8, 12, fill, default");
+		dropdown_panel.add(comboBox_13, "6, 12, fill, default");
 
 		comboBox_7 = new JComboBox();
 		comboBox_7.addActionListener(new ActionListener() {
@@ -503,11 +581,21 @@ public class SalatGUI extends JFrame {
 				}
 			}
 		});
+		
+		panel_5 = new JPanel();
+		dropdown_panel.add(panel_5, "8, 12, fill, fill");
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(6);
+		panel_5.add(textField_6);
+		
+		label_4 = new JLabel("g");
+		panel_5.add(label_4);
 		comboBox_7.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
 		dropdown_panel.add(comboBox_7, "4, 14, fill, default");
 
 		comboBox_14 = new JComboBox();
-		dropdown_panel.add(comboBox_14, "8, 14, fill, default");
+		dropdown_panel.add(comboBox_14, "6, 14, fill, default");
 
 		comboBox_8 = new JComboBox();
 		comboBox_8.addActionListener(new ActionListener() {
@@ -546,11 +634,31 @@ public class SalatGUI extends JFrame {
 				}
 			}
 		});
+		
+		panel_6 = new JPanel();
+		dropdown_panel.add(panel_6, "8, 14, fill, fill");
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(6);
+		panel_6.add(textField_7);
+		
+		label_5 = new JLabel("g");
+		panel_6.add(label_5);
 		comboBox_8.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
 		dropdown_panel.add(comboBox_8, "4, 16, fill, default");
 
 		comboBox_15 = new JComboBox();
-		dropdown_panel.add(comboBox_15, "8, 16, fill, default");
+		dropdown_panel.add(comboBox_15, "6, 16, fill, default");
+		
+		panel_8 = new JPanel();
+		dropdown_panel.add(panel_8, "8, 16, fill, fill");
+		
+		textField_8 = new JTextField();
+		textField_8.setColumns(6);
+		panel_8.add(textField_8);
+		
+		label_6 = new JLabel("g");
+		panel_8.add(label_6);
 
 		JPanel indstillinger = new JPanel();
 		tabbedPane.addTab("Indstillinger", null, indstillinger, null);
