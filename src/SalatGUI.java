@@ -110,7 +110,6 @@ public class SalatGUI extends JFrame {
 	 */
 	public SalatGUI() {
 		setResizable(false);
-		setType(Type.UTILITY);
 		k = new Kød_array();
 		f = new Frugt_array();
 		g = new Grønt_array();
@@ -150,47 +149,35 @@ public class SalatGUI extends JFrame {
 				RowSpec.decode("default:grow"),}));
 		
 				random_button = new JButton("Tilf\u00E6ldig salat");
-				random_button.addMouseListener(new MouseAdapter() {
-					public void mouseClicked(MouseEvent arg0) {
-						int l = ingredient_combo_1.getSelectedIndex();
-						Ingerdines mid =null;
-						if(k.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
-						{
-							mid = k.getObject(l);
-						}
-						else if(s.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
-						{
-							mid = s.getObject(l);
-						}
-						else if(g.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
-						{
-							mid = g.getObject(l);
-						}
-						else if(t.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
-						{	
-							mid = t.getObject(l);
-						}
-						else if(f.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
-						{	
-							mid = f.getObject(l);
-						}
-						else if(ko.getObject(l).getName().equals(ingredient_combo_1.getModel().getSelectedItem()))
-						{	
-							mid = ko.getObject(l);
-						}
-						if(textField_18.getText().equals(""))
-						{
-							textField_18.setText("1");
-						}
-							int u = Integer.parseInt(textField_18.getText());
-
-						textField_9.setText(Integer.toString(Integer.parseInt(mid.getVeagt())*u));
-						personer_.setText(mid.getName());
-
-
-
+				random_button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						int index_random_1 = (int)(Math.random() * ((ingredient_combo_1.getItemCount() - 1) + 1));
+						ingredient_combo_1.setSelectedIndex(index_random_1);
+						
+						int index_random_2 = (int)(Math.random() * ((ingredient_combo_2.getItemCount() - 1) + 1));
+						ingredient_combo_2.setSelectedIndex(index_random_2);
+						
+						int index_random_3 = (int)(Math.random() * ((ingredient_combo_3.getItemCount() - 1) + 1));
+						ingredient_combo_3.setSelectedIndex(index_random_3);
+						
+						int index_random_4 = (int)(Math.random() * ((ingredient_combo_4.getItemCount() - 1) + 1));
+						ingredient_combo_4.setSelectedIndex(index_random_4);
+						
+						int index_random_5 = (int)(Math.random() * ((ingredient_combo_5.getItemCount() - 1) + 1));
+						ingredient_combo_5.setSelectedIndex(index_random_5);
+						
+						int index_random_6 = (int)(Math.random() * ((ingredient_combo_6.getItemCount() - 1) + 1));
+						ingredient_combo_6.setSelectedIndex(index_random_6);
+						
+						int index_random_7 = (int)(Math.random() * ((ingredient_combo_7.getItemCount() - 1) + 1));
+						ingredient_combo_7.setSelectedIndex(index_random_7);
+						
+						int index_random_8 = (int)(Math.random() * ((ingredient_combo_8.getItemCount() - 1) + 1));
+						ingredient_combo_8.setSelectedIndex(index_random_8);
 					}
 				});
+				
+				
 				buttom_panel1.add(random_button, "2, 2, center, center");
 		
 		calc_button = new JButton(" Udregn ");
