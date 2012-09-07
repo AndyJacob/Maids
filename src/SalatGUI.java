@@ -90,6 +90,7 @@ public class SalatGUI extends JFrame {
 	private JLabel label_6;
 	private JPanel warning_panel;
 	private JLabel warning_salat;
+	private JButton btnGemDagensSalat;
 
 	/**
 	 * Launch the application.
@@ -136,7 +137,7 @@ public class SalatGUI extends JFrame {
 		warning_panel = new JPanel();
 		udregn_salat.add(warning_panel, BorderLayout.SOUTH);
 
-		warning_salat = new JLabel("Advarsel! Salat m\u00F8nster afviger fra anviste.");
+		warning_salat = new JLabel("Advarsel! Salat m\u00F8nster afviger fra det anviste.");
 		warning_salat.setVisible(false);
 		warning_salat.setForeground(Color.RED);
 		warning_panel.add(warning_salat);
@@ -148,11 +149,13 @@ public class SalatGUI extends JFrame {
 				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
 				ColumnSpec.decode("center:201px"),
 				ColumnSpec.decode("-10px"),},
-				new RowSpec[] {
+			new RowSpec[] {
 				FormFactory.LINE_GAP_ROWSPEC,
 				RowSpec.decode("23px"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("23px"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("31px"),
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -193,9 +196,12 @@ public class SalatGUI extends JFrame {
 
 		calc_button = new JButton(" Udregn ");
 		buttom_panel1.add(calc_button, "2, 4, center, center");
+		
+		btnGemDagensSalat = new JButton("Gem dagens salat");
+		buttom_panel1.add(btnGemDagensSalat, "2, 6");
 
 		person_panel = new JPanel();
-		buttom_panel1.add(person_panel, "2, 6, center, fill");
+		buttom_panel1.add(person_panel, "2, 8, center, fill");
 
 		lblNewLabel = new JLabel("Antal personer:");
 		person_panel.add(lblNewLabel);
