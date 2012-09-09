@@ -1,5 +1,6 @@
 
-public interface Ingerdines {
+public interface ingredient {
+	
 
 	public String getName();
 

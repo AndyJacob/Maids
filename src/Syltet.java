@@ -1,5 +1,5 @@
 
-public class Syltet implements Ingerdines{
+public class Syltet implements ingredient{
 	private String navn;
 	private String veagt;
 

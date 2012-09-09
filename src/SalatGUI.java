@@ -38,6 +38,7 @@ public class SalatGUI extends JFrame {
 	private Korn_array ko;
 	private Syltet_array s;
 	private Tørret_array t;
+	private ingredient_array i;
 	private JPanel contentPane;
 	private JPanel buttom_panel1;
 	private JButton random_button;
@@ -187,6 +188,8 @@ public class SalatGUI extends JFrame {
 
 				int index_random_8 = (int)(Math.random() * ((ingredient_combo_8.getItemCount() - 1) + 1));
 				ingredient_combo_8.setSelectedIndex(index_random_8);
+				//gram_1.setText(Integer.toString(Integer.parseInt
+				System.out.println(i.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt());
 
 			}
 		});

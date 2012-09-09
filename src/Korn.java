@@ -1,5 +1,5 @@
 
-public class Korn implements Ingerdines{
+public class Korn implements ingredient{
 private String navn;
 private String veagt;
 

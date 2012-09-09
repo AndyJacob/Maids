@@ -1,5 +1,5 @@
 
-public class Kød implements Ingerdines  {
+public class Kød implements ingredient  {
 private String navn;
 private String veagt;
 

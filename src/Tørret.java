@@ -1,5 +1,5 @@
 
-public class Tørret implements Ingerdines {
+public class Tørret implements ingredient {
 private String navn;
 private String veagt;
 

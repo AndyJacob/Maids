@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 
 
 
-public class Syltet_array {
+public class Syltet_array implements ingredient_array {
 	private ArrayList<Syltet> syltet_array;
 	private String name;
 	private String vægt;

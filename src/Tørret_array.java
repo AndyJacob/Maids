@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 
 
 
-public class Tørret_array {
+public class Tørret_array implements ingredient_array {
 	private ArrayList<Tørret> tørret_array;
 	private String name;
 	private String vægt;

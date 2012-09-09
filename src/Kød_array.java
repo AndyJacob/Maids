@@ -9,8 +9,8 @@ import java.util.StringTokenizer;
 
 
 
-public class Kød_array {
-	private ArrayList<Kød> kød_array;
+public class Kød_array implements ingredient_array {
+	private ArrayList<ingredient> kød_array;
 	private String name;
 	private String vægt;
 
@@ -28,7 +28,7 @@ public class Kød_array {
 	}
 
 	public Kød_array(){
-		kød_array = new ArrayList<Kød>();
+		kød_array = new ArrayList<ingredient>();
 		hentlist();
 	}
 
@@ -51,7 +51,7 @@ public class Kød_array {
 			System.out.println("fejl");
 		}
 	}
-	public Kød getObject(int i) {
+	public ingredient getObject(int i) {
 		return kød_array.get(i);
 	}
 	public int getSize() {

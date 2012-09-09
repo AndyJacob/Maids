@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 
 
-public class Grønt_array {
+public class Grønt_array implements ingredient_array  {
 	private ArrayList<Grønt> grønt_array;
 	private String name;
 	private String vægt;

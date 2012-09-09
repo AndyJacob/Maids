@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 
 
 
-public class Korn_array {
+public class Korn_array implements ingredient_array {
 	private ArrayList<Korn> korn_array;
 	private String name;
 	private String vægt;
