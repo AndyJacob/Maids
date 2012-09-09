@@ -196,7 +196,7 @@ public class SalatGUI extends JFrame {
 
 				int index_random_8 = (int)(Math.random() * ((ingredient_combo_8.getItemCount() - 1) + 1));
 				ingredient_combo_8.setSelectedIndex(index_random_8);
-
+				
 
 			}
 		});
@@ -349,31 +349,37 @@ public class SalatGUI extends JFrame {
 				if(catagory_combo_2.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
 						ingredient_combo_2.addItem(k.getObject(i).getName());
+						cat_2 = "k";
 					}
 				}
 				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
 						ingredient_combo_2.addItem(f.getObject(i).getName());
+						cat_2 = "f";
 					}
 				}
 				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
 						ingredient_combo_2.addItem(g.getObject(i).getName());
+						cat_2 = "g";
 					}
 				}
 				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
 						ingredient_combo_2.addItem(ko.getObject(i).getName());
+						cat_2 = "ko";
 					}
 				}
 				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
 						ingredient_combo_2.addItem(s.getObject(i).getName());
+						cat_2 = "s";
 					}
 				}
 				else if(catagory_combo_2.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
 						ingredient_combo_2.addItem(t.getObject(i).getName());
+						cat_2 = "t";
 					}
 				}
 			}
@@ -402,31 +408,37 @@ public class SalatGUI extends JFrame {
 				if(catagory_combo_3.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
 						ingredient_combo_3.addItem(k.getObject(i).getName());
+						cat_3 = "k";
 					}
 				}
 				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
 						ingredient_combo_3.addItem(f.getObject(i).getName());
+						cat_3 = "f";
 					}
 				}
 				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
 						ingredient_combo_3.addItem(g.getObject(i).getName());
+						cat_3 = "g";
 					}
 				}
 				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
 						ingredient_combo_3.addItem(ko.getObject(i).getName());
+						cat_3 = "ko";
 					}
 				}
 				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
 						ingredient_combo_3.addItem(s.getObject(i).getName());
+						cat_3 = "s";
 					}
 				}
 				else if(catagory_combo_3.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
 						ingredient_combo_3.addItem(t.getObject(i).getName());
+						cat_3 = "t";
 					}
 				}
 			}
@@ -456,31 +468,37 @@ public class SalatGUI extends JFrame {
 				if(catagory_combo_4.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
 						ingredient_combo_4.addItem(k.getObject(i).getName());
+						cat_4 = "k";
 					}
 				}
 				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
 						ingredient_combo_4.addItem(f.getObject(i).getName());
+						cat_4 = "f";
 					}
 				}
 				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
 						ingredient_combo_4.addItem(g.getObject(i).getName());
+						cat_4 = "g";
 					}
 				}
 				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
 						ingredient_combo_4.addItem(ko.getObject(i).getName());
+						cat_4 = "ko";
 					}
 				}
 				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
 						ingredient_combo_4.addItem(s.getObject(i).getName());
+						cat_4 = "s";
 					}
 				}
 				else if(catagory_combo_4.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
 						ingredient_combo_4.addItem(t.getObject(i).getName());
+						cat_4 = "t";
 					}
 				}
 			}
@@ -510,31 +528,37 @@ public class SalatGUI extends JFrame {
 				if(catagory_combo_5.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
 						ingredient_combo_5.addItem(k.getObject(i).getName());
+						cat_5 = "k";
 					}
 				}
 				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
 						ingredient_combo_5.addItem(f.getObject(i).getName());
+						cat_5 = "f";
 					}
 				}
 				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
 						ingredient_combo_5.addItem(g.getObject(i).getName());
+						cat_5 = "g";
 					}
 				}
 				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
 						ingredient_combo_5.addItem(ko.getObject(i).getName());
+						cat_5 = "ko";
 					}
 				}
 				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
 						ingredient_combo_5.addItem(s.getObject(i).getName());
+						cat_5 = "s";
 					}
 				}
 				else if(catagory_combo_5.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
 						ingredient_combo_5.addItem(t.getObject(i).getName());
+						cat_5 = "t";
 					}
 				}
 			}
@@ -564,31 +588,37 @@ public class SalatGUI extends JFrame {
 				if(catagory_combo_6.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
 						ingredient_combo_6.addItem(k.getObject(i).getName());
+						cat_6 = "k";
 					}
 				}
 				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
 						ingredient_combo_6.addItem(f.getObject(i).getName());
+						cat_6 = "f";
 					}
 				}
 				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
 						ingredient_combo_6.addItem(g.getObject(i).getName());
+						cat_6 = "g";
 					}
 				}
 				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
 						ingredient_combo_6.addItem(ko.getObject(i).getName());
+						cat_6 = "ko";
 					}
 				}
 				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
 						ingredient_combo_6.addItem(s.getObject(i).getName());
+						cat_6 = "s";
 					}
 				}
 				else if(catagory_combo_6.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
 						ingredient_combo_6.addItem(t.getObject(i).getName());
+						cat_6 = "t";
 					}
 				}
 			}
@@ -618,31 +648,37 @@ public class SalatGUI extends JFrame {
 				if(catagory_combo_7.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
 						ingredient_combo_7.addItem(k.getObject(i).getName());
+						cat_7 = "k";
 					}
 				}
 				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
 						ingredient_combo_7.addItem(f.getObject(i).getName());
+						cat_7 = "f";
 					}
 				}
 				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
 						ingredient_combo_7.addItem(g.getObject(i).getName());
+						cat_7 = "g";
 					}
 				}
 				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
 						ingredient_combo_7.addItem(ko.getObject(i).getName());
+						cat_7 = "ko";
 					}
 				}
 				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
 						ingredient_combo_7.addItem(s.getObject(i).getName());
+						cat_7 = "s";
 					}
 				}
 				else if(catagory_combo_7.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
 						ingredient_combo_7.addItem(t.getObject(i).getName());
+						cat_7 = "t";
 					}
 				}
 			}
@@ -673,31 +709,37 @@ public class SalatGUI extends JFrame {
 				if(catagory_combo_8.getModel().getSelectedItem().toString().equals("K\u00F8d/Ost")){
 					for(int i=0; i<k.getSize(); i++){
 						ingredient_combo_8.addItem(k.getObject(i).getName());
+						cat_8 = "k";
 					}
 				}
 				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("Frugt")){
 					for(int i=0; i<f.getSize(); i++){
 						ingredient_combo_8.addItem(f.getObject(i).getName());
+						cat_8 = "f";
 					}
 				}
 				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("Gr\u00F8nt")){
 					for(int i=0; i<g.getSize(); i++){
 						ingredient_combo_8.addItem(g.getObject(i).getName());
+						cat_8 = "g";
 					}
 				}
 				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("Korn")){
 					for(int i=0; i<ko.getSize(); i++){
 						ingredient_combo_8.addItem(ko.getObject(i).getName());
+						cat_8 = "ko";
 					}
 				}
 				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("Syltet")){
 					for(int i=0; i<s.getSize(); i++){
 						ingredient_combo_8.addItem(s.getObject(i).getName());
+						cat_8 = "s";
 					}
 				}
 				else if(catagory_combo_8.getModel().getSelectedItem().toString().equals("T\u00F8rret")){
 					for(int i=0; i<t.getSize(); i++){
 						ingredient_combo_8.addItem(t.getObject(i).getName());
+						cat_8 = "t";
 					}
 				}
 			}
