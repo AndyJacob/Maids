@@ -16,6 +16,7 @@ import java.awt.Font;
 import javax.swing.JTabbedPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
@@ -175,14 +176,12 @@ public class SalatGUI extends JFrame {
 				return values[index];
 			}
 		});
-		
+		ImageIcon yes_ico = new ImageIcon("bin/assets/yes.png","");
+		ImageIcon no_ico = new ImageIcon("bin/assets/no.png","");
 		Map<Object, Icon> icons = new HashMap<Object, Icon>();
-		icons.put("dag 1",
-			MetalIconFactory.getFileChooserDetailViewIcon());
-		icons.put("dag 2",
-			MetalIconFactory.getTreeFolderIcon());
-		icons.put("dag 3",
-			MetalIconFactory.getTreeComputerIcon());
+		icons.put("dag 1", yes_ico);
+		icons.put("dag 2", no_ico);
+		icons.put("dag 3", yes_ico);
 
 		list.setCellRenderer(new IconListRenderer(icons));
 		
