@@ -29,6 +29,9 @@ import java.awt.Window.Type;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import javax.swing.border.EtchedBorder;
 
 
 public class SalatGUI extends JFrame {
@@ -101,6 +104,9 @@ public class SalatGUI extends JFrame {
 	String cat_6;
 	String cat_7;
 	String cat_8;
+	private JPanel statistic_panel;
+	private JPanel statistic_panel_inner1;
+	private JList list;
 
 	/**
 	 * Launch the application.
@@ -131,7 +137,7 @@ public class SalatGUI extends JFrame {
 		s = new Syltet_array();
 		t = new Tørret_array();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 660, 393);
+		setBounds(100, 100, 750, 393);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -144,6 +150,27 @@ public class SalatGUI extends JFrame {
 		JPanel udregn_salat = new JPanel();
 		tabbedPane.addTab("Udregn salat", null, udregn_salat, null);
 		udregn_salat.setLayout(new BorderLayout(0, 0));
+		
+		statistic_panel = new JPanel();
+		udregn_salat.add(statistic_panel, BorderLayout.EAST);
+		statistic_panel.setLayout(new BorderLayout(0, 0));
+		
+		statistic_panel_inner1 = new JPanel();
+		statistic_panel_inner1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		statistic_panel.add(statistic_panel_inner1);
+		
+		list = new JList();
+		list.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		list.setModel(new AbstractListModel() {
+			String[] values = new String[] {"dag 1", "dag 2", "dag 3", "dag 4", "dag 5", "dag 6", "dag 7", "dag 8", "dag 9", "dag 10", "dag 11", "dag 12", "dag 13", "dag 14"};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		statistic_panel_inner1.add(list);
 
 		warning_panel = new JPanel();
 		udregn_salat.add(warning_panel, BorderLayout.SOUTH);
@@ -361,7 +388,7 @@ public class SalatGUI extends JFrame {
 		calc_button = new JButton(" Udregn ");
 		buttom_panel1.add(calc_button, "2, 4, center, center");
 
-		btnGemDagensSalat = new JButton("Gem dagens salat");
+		btnGemDagensSalat = new JButton("Gem salat");
 		buttom_panel1.add(btnGemDagensSalat, "2, 6");
 
 		person_panel = new JPanel();
