@@ -15,6 +15,7 @@ import com.jgoodies.forms.layout.RowSpec;
 import java.awt.Font;
 import javax.swing.JTabbedPane;
 import javax.swing.border.BevelBorder;
+import javax.swing.Icon;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
@@ -28,10 +29,14 @@ import java.awt.Dialog.ModalExclusionType;
 import java.awt.Window.Type;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.border.EtchedBorder;
+import javax.swing.plaf.metal.MetalIconFactory;
 
 
 public class SalatGUI extends JFrame {
@@ -170,6 +175,17 @@ public class SalatGUI extends JFrame {
 				return values[index];
 			}
 		});
+		
+		Map<Object, Icon> icons = new HashMap<Object, Icon>();
+		icons.put("dag 1",
+			MetalIconFactory.getFileChooserDetailViewIcon());
+		icons.put("dag 2",
+			MetalIconFactory.getTreeFolderIcon());
+		icons.put("dag 3",
+			MetalIconFactory.getTreeComputerIcon());
+
+		list.setCellRenderer(new IconListRenderer(icons));
+		
 		statistic_panel_inner1.add(list);
 
 		warning_panel = new JPanel();
@@ -970,5 +986,6 @@ public class SalatGUI extends JFrame {
 			warning_salat.setVisible(true);
 		}
 	}
+	
 }
 
