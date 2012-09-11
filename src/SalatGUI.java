@@ -30,6 +30,7 @@ import java.awt.Dialog.ModalExclusionType;
 import java.awt.Window.Type;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -113,6 +114,7 @@ public class SalatGUI extends JFrame {
 	private JPanel statistic_panel;
 	private JPanel statistic_panel_inner1;
 	private JList list;
+	private ArrayList gemtListe_1;
 
 	/**
 	 * Launch the application.
@@ -156,15 +158,15 @@ public class SalatGUI extends JFrame {
 		JPanel udregn_salat = new JPanel();
 		tabbedPane.addTab("Udregn salat", null, udregn_salat, null);
 		udregn_salat.setLayout(new BorderLayout(0, 0));
-		
+
 		statistic_panel = new JPanel();
 		udregn_salat.add(statistic_panel, BorderLayout.EAST);
 		statistic_panel.setLayout(new BorderLayout(0, 0));
-		
+
 		statistic_panel_inner1 = new JPanel();
 		statistic_panel_inner1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		statistic_panel.add(statistic_panel_inner1);
-		
+
 		list = new JList();
 		list.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		list.setModel(new AbstractListModel() {
@@ -176,6 +178,7 @@ public class SalatGUI extends JFrame {
 				return values[index];
 			}
 		});
+		list.setSelectedIndex(0);
 		ImageIcon yes_ico = new ImageIcon("bin/assets/yes.png","");
 		ImageIcon no_ico = new ImageIcon("bin/assets/no.png","");
 		Map<Object, Icon> icons = new HashMap<Object, Icon>();
@@ -184,7 +187,7 @@ public class SalatGUI extends JFrame {
 		icons.put("dag 3", yes_ico);
 
 		list.setCellRenderer(new IconListRenderer(icons));
-		
+
 		statistic_panel_inner1.add(list);
 
 		warning_panel = new JPanel();
@@ -241,7 +244,7 @@ public class SalatGUI extends JFrame {
 
 				int index_random_2 = (int)(Math.random() * ((ingredient_combo_2.getItemCount() - 1) + 1));
 				ingredient_combo_2.setSelectedIndex(index_random_2);
-				
+
 				if(cat_2.equals("f")){
 					gram_2.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -263,7 +266,7 @@ public class SalatGUI extends JFrame {
 
 				int index_random_3 = (int)(Math.random() * ((ingredient_combo_3.getItemCount() - 1) + 1));
 				ingredient_combo_3.setSelectedIndex(index_random_3);
-				
+
 				if(cat_3.equals("f")){
 					gram_3.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -304,10 +307,10 @@ public class SalatGUI extends JFrame {
 				else if(cat_5.equals("s")){
 					gram_5.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
 				}
-				
+
 				int index_random_5 = (int)(Math.random() * ((ingredient_combo_5.getItemCount() - 1) + 1));
 				ingredient_combo_5.setSelectedIndex(index_random_5);
-				
+
 				if(cat_5.equals("f")){
 					gram_5.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -329,7 +332,7 @@ public class SalatGUI extends JFrame {
 
 				int index_random_6 = (int)(Math.random() * ((ingredient_combo_6.getItemCount() - 1) + 1));
 				ingredient_combo_6.setSelectedIndex(index_random_6);
-				
+
 				if(cat_6.equals("f")){
 					gram_6.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_6.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -351,7 +354,7 @@ public class SalatGUI extends JFrame {
 
 				int index_random_7 = (int)(Math.random() * ((ingredient_combo_7.getItemCount() - 1) + 1));
 				ingredient_combo_7.setSelectedIndex(index_random_7);
-				
+
 				if(cat_7.equals("f")){
 					gram_7.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_7.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -373,7 +376,7 @@ public class SalatGUI extends JFrame {
 
 				int index_random_8 = (int)(Math.random() * ((ingredient_combo_8.getItemCount() - 1) + 1));
 				ingredient_combo_8.setSelectedIndex(index_random_8);
-				
+
 				if(cat_8.equals("f")){
 					gram_8.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -392,7 +395,7 @@ public class SalatGUI extends JFrame {
 				else if(cat_8.equals("s")){
 					gram_8.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
 				}
-				
+
 
 			}
 		});
@@ -401,9 +404,166 @@ public class SalatGUI extends JFrame {
 		buttom_panel1.add(random_button, "2, 2, center, center");
 
 		calc_button = new JButton(" Udregn ");
+		calc_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				personer = Integer.parseInt(personer_.getText());
+				if(cat_1.equals("f")){
+					gram_1.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_1.equals("k")){
+					gram_1.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_1.equals("g")){
+					gram_1.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_1.equals("ko")){
+					gram_1.setText(Integer.toString(Integer.parseInt(ko.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_1.equals("t")){
+					gram_1.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_1.equals("s")){
+					gram_1.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
+				}
+
+				if(cat_2.equals("f")){
+					gram_2.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_2.equals("k")){
+					gram_2.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_2.equals("g")){
+					gram_2.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_2.equals("ko")){
+					gram_2.setText(Integer.toString(Integer.parseInt(ko.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_2.equals("t")){
+					gram_1.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_2.equals("s")){
+					gram_2.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
+				}
+
+				if(cat_3.equals("f")){
+					gram_3.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_3.equals("k")){
+					gram_3.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_3.equals("g")){
+					gram_3.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_3.equals("ko")){
+					gram_3.setText(Integer.toString(Integer.parseInt(ko.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_3.equals("t")){
+					gram_3.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_3.equals("s")){
+					gram_3.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
+				}
+
+				if(cat_4.equals("f")){
+					gram_4.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_4.equals("k")){
+					gram_4.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_4.equals("g")){
+					gram_4.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_4.equals("ko")){
+					gram_4.setText(Integer.toString(Integer.parseInt(ko.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_4.equals("t")){
+					gram_4.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_5.equals("s")){
+					gram_5.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
+				}
+
+				if(cat_5.equals("f")){
+					gram_5.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_4.equals("k")){
+					gram_5.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_5.equals("g")){
+					gram_5.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_5.equals("ko")){
+					gram_5.setText(Integer.toString(Integer.parseInt(ko.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_5.equals("t")){
+					gram_5.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_5.equals("s")){
+					gram_5.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
+				}
+
+				if(cat_6.equals("f")){
+					gram_6.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_6.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_6.equals("k")){
+					gram_6.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_6.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_6.equals("g")){
+					gram_6.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_6.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_6.equals("ko")){
+					gram_6.setText(Integer.toString(Integer.parseInt(ko.getObject(ingredient_combo_6.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_6.equals("t")){
+					gram_6.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_6.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_6.equals("s")){
+					gram_6.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_6.getSelectedIndex()).getVeagt())*personer));
+				}
+
+				if(cat_7.equals("f")){
+					gram_7.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_7.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_7.equals("k")){
+					gram_7.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_7.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_7.equals("g")){
+					gram_7.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_7.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_7.equals("ko")){
+					gram_7.setText(Integer.toString(Integer.parseInt(ko.getObject(ingredient_combo_7.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_7.equals("t")){
+					gram_7.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_7.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_7.equals("s")){
+					gram_7.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_7.getSelectedIndex()).getVeagt())*personer));
+				}
+
+				if(cat_8.equals("f")){
+					gram_8.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_8.equals("k")){
+					gram_8.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_8.equals("g")){
+					gram_8.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_8.equals("ko")){
+					gram_8.setText(Integer.toString(Integer.parseInt(ko.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_8.equals("t")){
+					gram_8.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
+				}
+				else if(cat_8.equals("s")){
+					gram_8.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
+				}
+			}
+		});
 		buttom_panel1.add(calc_button, "2, 4, center, center");
 
 		btnGemDagensSalat = new JButton("Gem salat");
+
 		buttom_panel1.add(btnGemDagensSalat, "2, 6");
 
 		person_panel = new JPanel();
@@ -419,7 +579,7 @@ public class SalatGUI extends JFrame {
 		{
 			personer_.setText("1");
 		}
-		
+
 
 		dropdown_panel = new JPanel();
 		udregn_salat.add(dropdown_panel, BorderLayout.CENTER);
@@ -969,6 +1129,16 @@ public class SalatGUI extends JFrame {
 
 		chckbxNewCheckBox = new JCheckBox("Guler\u00F8dder fast");
 		panel_7.add(chckbxNewCheckBox, "4, 4");
+		gemtListe_1 = new ArrayList();
+		btnGemDagensSalat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gemtListe_1.add(list.getSelectedIndex());
+				gemtListe_1.add(catagory_combo_1.getSelectedIndex());
+				gemtListe_1.add(ingredient_combo_1.getSelectedIndex());
+				
+				System.out.println(gemtListe_1);
+			}
+		});
 	}		
 	public void warning(){
 		if(catagory_combo_1.getSelectedIndex() == 1 &&
@@ -985,6 +1155,6 @@ public class SalatGUI extends JFrame {
 			warning_salat.setVisible(true);
 		}
 	}
-	
+
 }
 
