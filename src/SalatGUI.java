@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Frame;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -71,7 +72,7 @@ public class SalatGUI extends JFrame {
 	private JComboBox ingredient_combo_7;
 	private JComboBox ingredient_combo_8;
 	private JPanel panel_7;
-	private JCheckBox chckbxNewCheckBox;
+	private JCheckBox carrots_fixed;
 	private JLabel lblNewLabel;
 	private JPanel person_panel;
 	private JTextField personer_;
@@ -167,6 +168,7 @@ public class SalatGUI extends JFrame {
 		statistic_panel_inner1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		statistic_panel.add(statistic_panel_inner1);
 
+
 		list = new JList();
 		list.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		list.setModel(new AbstractListModel() {
@@ -198,6 +200,22 @@ public class SalatGUI extends JFrame {
 		warning_salat.setForeground(Color.RED);
 		warning_panel.add(warning_salat);
 
+		panel_7 = new JPanel();
+		JPanel indstillinger = new JPanel();
+		tabbedPane.addTab("Indstillinger", null, indstillinger, null);
+		indstillinger.setLayout(new BorderLayout(0, 0));
+		indstillinger.add(panel_7, BorderLayout.CENTER);
+		panel_7.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,},
+				new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
+
 		buttom_panel1 = new JPanel();
 		buttom_panel1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		udregn_salat.add(buttom_panel1, BorderLayout.WEST);
@@ -223,6 +241,9 @@ public class SalatGUI extends JFrame {
 				personer = Integer.parseInt(personer_.getText());
 				int index_random_1 = (int)(Math.random() * ((ingredient_combo_1.getItemCount() - 1) + 1));
 				ingredient_combo_1.setSelectedIndex(index_random_1);
+
+
+
 				if(cat_1.equals("f")){
 					gram_1.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -242,8 +263,24 @@ public class SalatGUI extends JFrame {
 					gram_1.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
 				}
 
-				int index_random_2 = (int)(Math.random() * ((ingredient_combo_2.getItemCount() - 1) + 1));
-				ingredient_combo_2.setSelectedIndex(index_random_2);
+			
+				
+				if(carrots_fixed.getModel().isSelected() == true) {
+					catagory_combo_2.setSelectedIndex(4);
+					ingredient_combo_2.setSelectedIndex(4);
+				}	
+				
+	
+				else {
+					int index_random_2 = (int)(Math.random() * ((ingredient_combo_2.getItemCount() - 1) + 1));
+					ingredient_combo_2.setSelectedIndex(index_random_2);
+				
+					while (ingredient_combo_2.getSelectedItem().toString().equals(ingredient_combo_1.getSelectedItem().toString())) {
+						index_random_2 = (int)(Math.random() * ((ingredient_combo_2.getItemCount() - 1) + 1));
+						ingredient_combo_2.setSelectedIndex(index_random_2);
+					}
+
+				}
 
 				if(cat_2.equals("f")){
 					gram_2.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
@@ -251,6 +288,7 @@ public class SalatGUI extends JFrame {
 				else if(cat_2.equals("k")){
 					gram_2.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
 				}
+
 				else if(cat_2.equals("g")){
 					gram_2.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -266,7 +304,11 @@ public class SalatGUI extends JFrame {
 
 				int index_random_3 = (int)(Math.random() * ((ingredient_combo_3.getItemCount() - 1) + 1));
 				ingredient_combo_3.setSelectedIndex(index_random_3);
-
+				while (ingredient_combo_3.getSelectedItem().toString().equals(ingredient_combo_1.getSelectedItem().toString()) || 
+						ingredient_combo_3.getSelectedItem().toString().equals(ingredient_combo_2.getSelectedItem().toString())) {
+					index_random_3 = (int)(Math.random() * ((ingredient_combo_3.getItemCount() - 1) + 1));
+					ingredient_combo_3.setSelectedIndex(index_random_3);
+				}
 				if(cat_3.equals("f")){
 					gram_3.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -396,7 +438,10 @@ public class SalatGUI extends JFrame {
 					gram_8.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
 				}
 
-
+				System.out.println(ingredient_combo_1.getSelectedItem().toString());
+				System.out.println(ingredient_combo_2.getSelectedItem().toString());
+				System.out.println(ingredient_combo_3.getSelectedItem().toString());
+				System.out.println("break ---------------------");
 			}
 		});
 
@@ -909,7 +954,9 @@ public class SalatGUI extends JFrame {
 		gram_4 = new JTextField();
 		gram_4.setColumns(6);
 		panel_3.add(gram_4);
-
+		carrots_fixed = new JCheckBox("Guler\u00F8dder fast");
+		carrots_fixed.setSelected(true);
+		panel_7.add(carrots_fixed, "4, 4");
 		label_2 = new JLabel("g");
 		panel_3.add(label_2);
 		catagory_combo_5.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
@@ -1110,32 +1157,17 @@ public class SalatGUI extends JFrame {
 		label_6 = new JLabel("g");
 		panel_8.add(label_6);
 
-		JPanel indstillinger = new JPanel();
-		tabbedPane.addTab("Indstillinger", null, indstillinger, null);
-		indstillinger.setLayout(new BorderLayout(0, 0));
 
-		panel_7 = new JPanel();
-		indstillinger.add(panel_7, BorderLayout.CENTER);
-		panel_7.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,},
-				new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
 
-		chckbxNewCheckBox = new JCheckBox("Guler\u00F8dder fast");
-		panel_7.add(chckbxNewCheckBox, "4, 4");
+
+
 		gemtListe_1 = new ArrayList();
 		btnGemDagensSalat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				gemtListe_1.add(list.getSelectedIndex());
 				gemtListe_1.add(catagory_combo_1.getSelectedIndex());
 				gemtListe_1.add(ingredient_combo_1.getSelectedIndex());
-				
+
 				System.out.println(gemtListe_1);
 			}
 		});
