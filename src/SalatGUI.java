@@ -239,9 +239,8 @@ public class SalatGUI extends JFrame {
 		random_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				personer = Integer.parseInt(personer_.getText());
-				int index_random_1 = (int)(Math.random() * ((ingredient_combo_1.getItemCount() - 1) + 1));
-				ingredient_combo_1.setSelectedIndex(index_random_1);
 
+				setCombo();
 
 
 				if(cat_1.equals("f")){
@@ -263,24 +262,10 @@ public class SalatGUI extends JFrame {
 					gram_1.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
 				}
 
-			
-				
 				if(carrots_fixed.getModel().isSelected() == true) {
 					catagory_combo_2.setSelectedIndex(4);
 					ingredient_combo_2.setSelectedIndex(4);
 				}	
-				
-	
-				else {
-					int index_random_2 = (int)(Math.random() * ((ingredient_combo_2.getItemCount() - 1) + 1));
-					ingredient_combo_2.setSelectedIndex(index_random_2);
-				
-					while (ingredient_combo_2.getSelectedItem().toString().equals(ingredient_combo_1.getSelectedItem().toString())) {
-						index_random_2 = (int)(Math.random() * ((ingredient_combo_2.getItemCount() - 1) + 1));
-						ingredient_combo_2.setSelectedIndex(index_random_2);
-					}
-
-				}
 
 				if(cat_2.equals("f")){
 					gram_2.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
@@ -288,7 +273,6 @@ public class SalatGUI extends JFrame {
 				else if(cat_2.equals("k")){
 					gram_2.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
 				}
-
 				else if(cat_2.equals("g")){
 					gram_2.setText(Integer.toString(Integer.parseInt(g.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -302,13 +286,9 @@ public class SalatGUI extends JFrame {
 					gram_2.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
 				}
 
-				int index_random_3 = (int)(Math.random() * ((ingredient_combo_3.getItemCount() - 1) + 1));
-				ingredient_combo_3.setSelectedIndex(index_random_3);
-				while (ingredient_combo_3.getSelectedItem().toString().equals(ingredient_combo_1.getSelectedItem().toString()) || 
-						ingredient_combo_3.getSelectedItem().toString().equals(ingredient_combo_2.getSelectedItem().toString())) {
-					index_random_3 = (int)(Math.random() * ((ingredient_combo_3.getItemCount() - 1) + 1));
-					ingredient_combo_3.setSelectedIndex(index_random_3);
-				}
+
+
+
 				if(cat_3.equals("f")){
 					gram_3.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -327,9 +307,6 @@ public class SalatGUI extends JFrame {
 				else if(cat_3.equals("s")){
 					gram_3.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_3.getSelectedIndex()).getVeagt())*personer));
 				}
-
-				int index_random_4 = (int)(Math.random() * ((ingredient_combo_4.getItemCount() - 1) + 1));
-				ingredient_combo_4.setSelectedIndex(index_random_4);
 
 				if(cat_4.equals("f")){
 					gram_4.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
@@ -350,9 +327,6 @@ public class SalatGUI extends JFrame {
 					gram_5.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
 				}
 
-				int index_random_5 = (int)(Math.random() * ((ingredient_combo_5.getItemCount() - 1) + 1));
-				ingredient_combo_5.setSelectedIndex(index_random_5);
-
 				if(cat_5.equals("f")){
 					gram_5.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -372,8 +346,6 @@ public class SalatGUI extends JFrame {
 					gram_5.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
 				}
 
-				int index_random_6 = (int)(Math.random() * ((ingredient_combo_6.getItemCount() - 1) + 1));
-				ingredient_combo_6.setSelectedIndex(index_random_6);
 
 				if(cat_6.equals("f")){
 					gram_6.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_6.getSelectedIndex()).getVeagt())*personer));
@@ -394,8 +366,6 @@ public class SalatGUI extends JFrame {
 					gram_6.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_6.getSelectedIndex()).getVeagt())*personer));
 				}
 
-				int index_random_7 = (int)(Math.random() * ((ingredient_combo_7.getItemCount() - 1) + 1));
-				ingredient_combo_7.setSelectedIndex(index_random_7);
 
 				if(cat_7.equals("f")){
 					gram_7.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_7.getSelectedIndex()).getVeagt())*personer));
@@ -416,8 +386,6 @@ public class SalatGUI extends JFrame {
 					gram_7.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_7.getSelectedIndex()).getVeagt())*personer));
 				}
 
-				int index_random_8 = (int)(Math.random() * ((ingredient_combo_8.getItemCount() - 1) + 1));
-				ingredient_combo_8.setSelectedIndex(index_random_8);
 
 				if(cat_8.equals("f")){
 					gram_8.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
@@ -437,7 +405,68 @@ public class SalatGUI extends JFrame {
 				else if(cat_8.equals("s")){
 					gram_8.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
 				}
+			}
 
+			private void setCombo() {
+				int index_random_1 = (int)(Math.random() * ((ingredient_combo_1.getItemCount() - 1) + 1));	
+				int index_random_2 = (int)(Math.random() * ((ingredient_combo_2.getItemCount() - 1) + 1));
+				int index_random_3 = (int)(Math.random() * ((ingredient_combo_3.getItemCount() - 1) + 1));
+				int index_random_4 = (int)(Math.random() * ((ingredient_combo_4.getItemCount() - 1) + 1));	
+				int index_random_5 = (int)(Math.random() * ((ingredient_combo_5.getItemCount() - 1) + 1));
+				int index_random_6 = (int)(Math.random() * ((ingredient_combo_6.getItemCount() - 1) + 1));
+				int index_random_7 = (int)(Math.random() * ((ingredient_combo_7.getItemCount() - 1) + 1));	
+				int index_random_8 = (int)(Math.random() * ((ingredient_combo_8.getItemCount() - 1) + 1));
+
+				ingredient_combo_1.setSelectedIndex(index_random_1);
+				ingredient_combo_2.setSelectedIndex(index_random_2);
+				ingredient_combo_3.setSelectedIndex(index_random_3);
+				ingredient_combo_4.setSelectedIndex(index_random_4);
+				ingredient_combo_5.setSelectedIndex(index_random_5);
+				ingredient_combo_6.setSelectedIndex(index_random_6);
+				ingredient_combo_7.setSelectedIndex(index_random_7);
+				ingredient_combo_8.setSelectedIndex(index_random_8);
+
+				ArrayList dupes1 = new ArrayList();
+				dupes1.add(cat_1);
+				dupes1.add(cat_2);
+				dupes1.add(cat_3);
+				dupes1.add(cat_4);
+				dupes1.add(cat_5);
+				dupes1.add(cat_6);
+				dupes1.add(cat_7);
+				dupes1.add(cat_8);
+
+				ArrayList dupes2 = new ArrayList();
+				dupes2.add(ingredient_combo_1.getSelectedIndex());
+				dupes2.add(ingredient_combo_2.getSelectedIndex());
+				dupes2.add(ingredient_combo_3.getSelectedIndex());
+				dupes2.add(ingredient_combo_4.getSelectedIndex());
+				dupes2.add(ingredient_combo_5.getSelectedIndex());
+				dupes2.add(ingredient_combo_6.getSelectedIndex());
+				dupes2.add(ingredient_combo_7.getSelectedIndex());
+				dupes2.add(ingredient_combo_8.getSelectedIndex());
+
+				ArrayList dupes3 = new ArrayList();
+
+				int index_o = 0;
+				int index_true = 0;
+				int index_true_test = 0;
+				for(Object o : dupes1){
+					int index_m = 0;
+					for(Object m : dupes1){
+						if(o.equals(m)){
+							index_true++;
+							if(dupes2.get(index_o).equals(dupes2.get(index_m))){
+								index_true_test++;
+							}
+						}
+						index_m++;
+					}
+					index_o++;
+				}
+				if(index_true_test > 8){
+					setCombo();
+				}
 			}
 		});
 
