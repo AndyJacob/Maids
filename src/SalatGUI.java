@@ -242,7 +242,6 @@ public class SalatGUI extends JFrame {
 
 				setCombo();
 
-
 				if(cat_1.equals("f")){
 					gram_1.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_1.getSelectedIndex()).getVeagt())*personer));
 				}
@@ -446,16 +445,12 @@ public class SalatGUI extends JFrame {
 				dupes2.add(ingredient_combo_7.getSelectedIndex());
 				dupes2.add(ingredient_combo_8.getSelectedIndex());
 
-				ArrayList dupes3 = new ArrayList();
-
 				int index_o = 0;
-				int index_true = 0;
 				int index_true_test = 0;
 				for(Object o : dupes1){
 					int index_m = 0;
 					for(Object m : dupes1){
 						if(o.equals(m)){
-							index_true++;
 							if(dupes2.get(index_o).equals(dupes2.get(index_m))){
 								index_true_test++;
 							}
