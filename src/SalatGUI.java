@@ -438,10 +438,6 @@ public class SalatGUI extends JFrame {
 					gram_8.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
 				}
 
-				System.out.println(ingredient_combo_1.getSelectedItem().toString());
-				System.out.println(ingredient_combo_2.getSelectedItem().toString());
-				System.out.println(ingredient_combo_3.getSelectedItem().toString());
-				System.out.println("break ---------------------");
 			}
 		});
 
