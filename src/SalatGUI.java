@@ -200,6 +200,17 @@ public class SalatGUI extends JFrame {
 		icons.put("dag 1", yes_ico);
 		icons.put("dag 2", no_ico);
 		icons.put("dag 3", yes_ico);
+		icons.put("dag 4", yes_ico);
+		icons.put("dag 5", yes_ico);
+		icons.put("dag 6", yes_ico);
+		icons.put("dag 7", yes_ico);
+		icons.put("dag 8", yes_ico);
+		icons.put("dag 9", yes_ico);
+		icons.put("dag 10", yes_ico);
+		icons.put("dag 11", yes_ico);
+		icons.put("dag 12", yes_ico);
+		icons.put("dag 13", yes_ico);
+		icons.put("dag 14", yes_ico);
 
 		list.setCellRenderer(new IconListRenderer(icons));
 
