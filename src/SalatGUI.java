@@ -116,6 +116,19 @@ public class SalatGUI extends JFrame {
 	private JPanel statistic_panel_inner1;
 	private JList list;
 	private ArrayList gemtListe_1;
+	private ArrayList gemtListe_2;
+	private ArrayList gemtListe_3;
+	private ArrayList gemtListe_4;
+	private ArrayList gemtListe_5;
+	private ArrayList gemtListe_6;
+	private ArrayList gemtListe_7;
+	private ArrayList gemtListe_8;
+	private ArrayList gemtListe_9;
+	private ArrayList gemtListe_10;
+	private ArrayList gemtListe_11;
+	private ArrayList gemtListe_12;
+	private ArrayList gemtListe_13;
+	private ArrayList gemtListe_14;
 
 	/**
 	 * Launch the application.
@@ -1182,12 +1195,39 @@ public class SalatGUI extends JFrame {
 
 
 		gemtListe_1 = new ArrayList();
+		gemtListe_2 = new ArrayList();
+		gemtListe_3 = new ArrayList();
+		gemtListe_4 = new ArrayList();
+		gemtListe_5 = new ArrayList();
+		gemtListe_6 = new ArrayList();
+		gemtListe_7 = new ArrayList();
+		gemtListe_8 = new ArrayList();
+		gemtListe_9 = new ArrayList();
+		gemtListe_10 = new ArrayList();
+		gemtListe_11 = new ArrayList();
+		gemtListe_12 = new ArrayList();
+		gemtListe_13 = new ArrayList();
+		gemtListe_14 = new ArrayList();
+
 		btnGemDagensSalat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				gemtListe_1.add(list.getSelectedIndex());
 				gemtListe_1.add(catagory_combo_1.getSelectedIndex());
 				gemtListe_1.add(ingredient_combo_1.getSelectedIndex());
-
+				gemtListe_1.add(catagory_combo_2.getSelectedIndex());
+				gemtListe_1.add(ingredient_combo_2.getSelectedIndex());
+				gemtListe_1.add(catagory_combo_3.getSelectedIndex());
+				gemtListe_1.add(ingredient_combo_3.getSelectedIndex());
+				gemtListe_1.add(catagory_combo_4.getSelectedIndex());
+				gemtListe_1.add(ingredient_combo_4.getSelectedIndex());
+				gemtListe_1.add(catagory_combo_5.getSelectedIndex());
+				gemtListe_1.add(ingredient_combo_5.getSelectedIndex());
+				gemtListe_1.add(catagory_combo_6.getSelectedIndex());
+				gemtListe_1.add(ingredient_combo_6.getSelectedIndex());
+				gemtListe_1.add(catagory_combo_7.getSelectedIndex());
+				gemtListe_1.add(ingredient_combo_7.getSelectedIndex());
+				gemtListe_1.add(catagory_combo_8.getSelectedIndex());
+				gemtListe_1.add(ingredient_combo_8.getSelectedIndex());
 				System.out.println(gemtListe_1);
 			}
 		});
