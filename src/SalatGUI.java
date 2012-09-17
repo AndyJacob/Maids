@@ -183,6 +183,17 @@ public class SalatGUI extends JFrame {
 
 
 		list = new JList();
+		list.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if(e.getClickCount() == 2){
+					if(list.getSelectedIndex() == 0){
+						for(int i=1; i<gemtListe_1.size(); i++){
+							gemtListe_1.get(i);
+						}
+					}
+				}
+			}
+		});
 		list.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		list.setModel(new AbstractListModel() {
 			String[] values = new String[] {"dag 1", "dag 2", "dag 3", "dag 4", "dag 5", "dag 6", "dag 7", "dag 8", "dag 9", "dag 10", "dag 11", "dag 12", "dag 13", "dag 14"};
@@ -198,7 +209,7 @@ public class SalatGUI extends JFrame {
 		ImageIcon no_ico = new ImageIcon("bin/assets/no.png","");
 		Map<Object, Icon> icons = new HashMap<Object, Icon>();
 		icons.put("dag 1", yes_ico);
-		icons.put("dag 2", no_ico);
+		icons.put("dag 2", yes_ico);
 		icons.put("dag 3", yes_ico);
 		icons.put("dag 4", yes_ico);
 		icons.put("dag 5", yes_ico);
@@ -299,7 +310,7 @@ public class SalatGUI extends JFrame {
 					gram_2.setText(Integer.toString(Integer.parseInt(ko.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
 				}
 				else if(cat_2.equals("t")){
-					gram_1.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
+					gram_2.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
 				}
 				else if(cat_2.equals("s")){
 					gram_2.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_2.getSelectedIndex()).getVeagt())*personer));
@@ -342,14 +353,14 @@ public class SalatGUI extends JFrame {
 				else if(cat_4.equals("t")){
 					gram_4.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
 				}
-				else if(cat_5.equals("s")){
-					gram_5.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
+				else if(cat_4.equals("s")){
+					gram_4.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
 				}
 
 				if(cat_5.equals("f")){
 					gram_5.setText(Integer.toString(Integer.parseInt(f.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
 				}
-				else if(cat_4.equals("k")){
+				else if(cat_5.equals("k")){
 					gram_5.setText(Integer.toString(Integer.parseInt(k.getObject(ingredient_combo_5.getSelectedIndex()).getVeagt())*personer));
 				}
 				else if(cat_5.equals("g")){
@@ -424,6 +435,7 @@ public class SalatGUI extends JFrame {
 				else if(cat_8.equals("s")){
 					gram_8.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
 				}
+				checkCollisions();
 			}
 
 			private void setCombo() {
@@ -759,6 +771,7 @@ public class SalatGUI extends JFrame {
 						cat_1 = "t";
 					}
 				}
+				checkCollisions();
 			}
 
 		});
@@ -810,6 +823,7 @@ public class SalatGUI extends JFrame {
 						cat_2 = "t";
 					}
 				}
+				checkCollisions();
 			}
 		});
 
@@ -869,6 +883,7 @@ public class SalatGUI extends JFrame {
 						cat_3 = "t";
 					}
 				}
+				checkCollisions();
 			}
 		});
 
@@ -929,6 +944,7 @@ public class SalatGUI extends JFrame {
 						cat_4 = "t";
 					}
 				}
+				checkCollisions();
 			}
 		});
 
@@ -942,7 +958,7 @@ public class SalatGUI extends JFrame {
 		label_1 = new JLabel("g");
 		panel_2.add(label_1);
 		catagory_combo_4.setModel(new DefaultComboBoxModel(new String[] {"Syltet", "K\u00F8d/Ost", "Frugt", "Korn", "Gr\u00F8nt", "T\u00F8rret"}));
-		catagory_combo_4.setSelectedIndex(4);
+		catagory_combo_4.setSelectedIndex(0);
 		dropdown_panel.add(catagory_combo_4, "4, 8, fill, default");
 
 		ingredient_combo_5 = new JComboBox();
@@ -989,6 +1005,7 @@ public class SalatGUI extends JFrame {
 						cat_5 = "t";
 					}
 				}
+				checkCollisions();
 			}
 		});
 
@@ -999,7 +1016,7 @@ public class SalatGUI extends JFrame {
 		gram_4.setColumns(6);
 		panel_3.add(gram_4);
 		carrots_fixed = new JCheckBox("Guler\u00F8dder fast");
-		carrots_fixed.setSelected(true);
+		carrots_fixed.setSelected(false);
 		panel_7.add(carrots_fixed, "4, 4");
 		label_2 = new JLabel("g");
 		panel_3.add(label_2);
@@ -1051,6 +1068,7 @@ public class SalatGUI extends JFrame {
 						cat_6 = "t";
 					}
 				}
+				checkCollisions();
 			}
 		});
 
@@ -1111,6 +1129,7 @@ public class SalatGUI extends JFrame {
 						cat_7 = "t";
 					}
 				}
+				checkCollisions();
 			}
 		});
 
@@ -1172,6 +1191,7 @@ public class SalatGUI extends JFrame {
 						cat_8 = "t";
 					}
 				}
+				checkCollisions();
 			}
 		});
 
@@ -1202,7 +1222,46 @@ public class SalatGUI extends JFrame {
 		panel_8.add(label_6);
 
 
-
+		ingredient_combo_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkCollisions();
+			}
+		});
+		ingredient_combo_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkCollisions();
+			}
+		});
+		ingredient_combo_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkCollisions();
+			}
+		});
+		ingredient_combo_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkCollisions();
+			}
+		});
+		ingredient_combo_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkCollisions();
+			}
+		});
+		ingredient_combo_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkCollisions();
+			}
+		});
+		ingredient_combo_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkCollisions();
+			}
+		});
+		ingredient_combo_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkCollisions();
+			}
+		});
 
 
 		gemtListe_1 = new ArrayList();
@@ -1222,24 +1281,300 @@ public class SalatGUI extends JFrame {
 
 		btnGemDagensSalat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gemtListe_1.add(list.getSelectedIndex());
-				gemtListe_1.add(catagory_combo_1.getSelectedIndex());
-				gemtListe_1.add(ingredient_combo_1.getSelectedIndex());
-				gemtListe_1.add(catagory_combo_2.getSelectedIndex());
-				gemtListe_1.add(ingredient_combo_2.getSelectedIndex());
-				gemtListe_1.add(catagory_combo_3.getSelectedIndex());
-				gemtListe_1.add(ingredient_combo_3.getSelectedIndex());
-				gemtListe_1.add(catagory_combo_4.getSelectedIndex());
-				gemtListe_1.add(ingredient_combo_4.getSelectedIndex());
-				gemtListe_1.add(catagory_combo_5.getSelectedIndex());
-				gemtListe_1.add(ingredient_combo_5.getSelectedIndex());
-				gemtListe_1.add(catagory_combo_6.getSelectedIndex());
-				gemtListe_1.add(ingredient_combo_6.getSelectedIndex());
-				gemtListe_1.add(catagory_combo_7.getSelectedIndex());
-				gemtListe_1.add(ingredient_combo_7.getSelectedIndex());
-				gemtListe_1.add(catagory_combo_8.getSelectedIndex());
-				gemtListe_1.add(ingredient_combo_8.getSelectedIndex());
-				System.out.println(gemtListe_1);
+				if(list.getSelectedValue().equals("dag 1")){
+					gemtListe_1.clear();
+					gemtListe_1.add(list.getSelectedIndex());
+					gemtListe_1.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_1.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_1.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_1.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_1.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_1.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_1.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_1.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_1.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_1.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_1.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_1.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_1.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_1.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_1.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_1.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_1);
+				}
+				else if(list.getSelectedValue().equals("dag 2")){
+					gemtListe_2.clear();
+					gemtListe_2.add(list.getSelectedIndex());
+					gemtListe_2.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_2.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_2.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_2.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_2.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_2.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_2.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_2.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_2.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_2.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_2.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_2.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_2.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_2.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_2.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_2.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_2);
+				}
+				else if(list.getSelectedValue().equals("dag 3")){
+					gemtListe_3.clear();
+					gemtListe_3.add(list.getSelectedIndex());
+					gemtListe_3.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_3.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_3.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_3.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_3.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_3.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_3.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_3.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_3.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_3.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_3.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_3.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_3.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_3.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_3.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_3.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_3);
+				}
+				else if(list.getSelectedValue().equals("dag 4")){
+					gemtListe_4.clear();
+					gemtListe_4.add(list.getSelectedIndex());
+					gemtListe_4.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_4.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_4.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_4.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_4.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_4.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_4.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_4.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_4.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_4.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_4.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_4.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_4.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_4.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_4.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_4.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_4);
+				}
+				else if(list.getSelectedValue().equals("dag 5")){
+					gemtListe_5.clear();
+					gemtListe_5.add(list.getSelectedIndex());
+					gemtListe_5.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_5.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_5.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_5.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_5.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_5.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_5.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_5.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_5.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_5.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_5.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_5.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_5.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_5.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_5.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_5.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_5);
+				}
+				else if(list.getSelectedValue().equals("dag 6")){
+					gemtListe_6.clear();
+					gemtListe_6.add(list.getSelectedIndex());
+					gemtListe_6.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_6.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_6.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_6.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_6.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_6.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_6.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_6.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_6.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_6.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_6.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_6.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_6.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_6.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_6.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_6.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_6);
+				}
+				else if(list.getSelectedValue().equals("dag 7")){
+					gemtListe_7.clear();
+					gemtListe_7.add(list.getSelectedIndex());
+					gemtListe_7.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_7.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_7.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_7.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_7.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_7.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_7.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_7.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_7.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_7.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_7.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_7.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_7.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_7.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_7.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_7.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_7);
+				}
+				else if(list.getSelectedValue().equals("dag 8")){
+					gemtListe_8.clear();
+					gemtListe_8.add(list.getSelectedIndex());
+					gemtListe_8.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_8.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_8.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_8.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_8.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_8.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_8.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_8.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_8.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_8.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_8.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_8.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_8.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_8.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_8.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_8.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_8);
+				}
+				else if(list.getSelectedValue().equals("dag 9")){
+					gemtListe_9.clear();
+					gemtListe_9.add(list.getSelectedIndex());
+					gemtListe_9.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_9.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_9.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_9.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_9.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_9.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_9.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_9.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_9.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_9.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_9.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_9.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_9.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_9.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_9.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_9.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_9);
+				}
+				else if(list.getSelectedValue().equals("dag 10")){
+					gemtListe_10.clear();
+					gemtListe_10.add(list.getSelectedIndex());
+					gemtListe_10.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_10.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_10.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_10.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_10.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_10.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_10.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_10.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_10.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_10.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_10.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_10.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_10.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_10.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_10.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_10.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_10);
+				}
+				else if(list.getSelectedValue().equals("dag 11")){
+					gemtListe_11.clear();
+					gemtListe_11.add(list.getSelectedIndex());
+					gemtListe_11.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_11.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_11.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_11.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_11.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_11.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_11.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_11.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_11.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_11.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_11.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_11.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_11.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_11.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_11.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_11.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_11);
+				}
+				else if(list.getSelectedValue().equals("dag 12")){
+					gemtListe_12.clear();
+					gemtListe_12.add(list.getSelectedIndex());
+					gemtListe_12.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_12.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_12.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_12.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_12.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_12.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_12.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_12.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_12.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_12.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_12.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_12.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_12.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_12.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_12.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_12.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_2);
+				}
+				else if(list.getSelectedValue().equals("dag 13")){
+					gemtListe_13.clear();
+					gemtListe_13.add(list.getSelectedIndex());
+					gemtListe_13.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_13.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_13.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_13.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_13.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_13.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_13.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_13.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_13.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_13.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_13.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_13.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_13.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_13.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_13.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_13.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_13);
+				}
+				else if(list.getSelectedValue().equals("dag 14")){
+					gemtListe_14.clear();
+					gemtListe_14.add(list.getSelectedIndex());
+					gemtListe_14.add(catagory_combo_1.getSelectedIndex());
+					gemtListe_14.add(ingredient_combo_1.getSelectedIndex());
+					gemtListe_14.add(catagory_combo_2.getSelectedIndex());
+					gemtListe_14.add(ingredient_combo_2.getSelectedIndex());
+					gemtListe_14.add(catagory_combo_3.getSelectedIndex());
+					gemtListe_14.add(ingredient_combo_3.getSelectedIndex());
+					gemtListe_14.add(catagory_combo_4.getSelectedIndex());
+					gemtListe_14.add(ingredient_combo_4.getSelectedIndex());
+					gemtListe_14.add(catagory_combo_5.getSelectedIndex());
+					gemtListe_14.add(ingredient_combo_5.getSelectedIndex());
+					gemtListe_14.add(catagory_combo_6.getSelectedIndex());
+					gemtListe_14.add(ingredient_combo_6.getSelectedIndex());
+					gemtListe_14.add(catagory_combo_7.getSelectedIndex());
+					gemtListe_14.add(ingredient_combo_7.getSelectedIndex());
+					gemtListe_14.add(catagory_combo_8.getSelectedIndex());
+					gemtListe_14.add(ingredient_combo_8.getSelectedIndex());
+					System.out.println(gemtListe_14);
+				}
 			}
 		});
 	}		
@@ -1247,7 +1582,7 @@ public class SalatGUI extends JFrame {
 		if(catagory_combo_1.getSelectedIndex() == 1 &&
 				catagory_combo_2.getSelectedIndex() == 4 &&
 				catagory_combo_3.getSelectedIndex() == 4 &&
-				catagory_combo_4.getSelectedIndex() == 4 &&
+				catagory_combo_4.getSelectedIndex() == 0 &&
 				catagory_combo_5.getSelectedIndex() == 0 &&
 				catagory_combo_6.getSelectedIndex() == 3 &&
 				catagory_combo_7.getSelectedIndex() == 5 &&
@@ -1257,6 +1592,118 @@ public class SalatGUI extends JFrame {
 		else {
 			warning_salat.setVisible(true);
 		}
+	}
+	public void checkCollisions(){
+		ArrayList collision_array = new ArrayList();
+		collision_array.add(list.getSelectedIndex());
+		if(ingredient_combo_1 != null){
+			collision_array.add(catagory_combo_1.getSelectedIndex());
+			collision_array.add(ingredient_combo_1.getSelectedIndex());
+		}
+		if(ingredient_combo_2 != null){
+			collision_array.add(catagory_combo_2.getSelectedIndex());
+			collision_array.add(ingredient_combo_2.getSelectedIndex());
+		}
+		if(ingredient_combo_3 != null){
+			collision_array.add(catagory_combo_3.getSelectedIndex());
+			collision_array.add(ingredient_combo_3.getSelectedIndex());
+		}
+		if(ingredient_combo_4 != null){
+			collision_array.add(catagory_combo_4.getSelectedIndex());
+			collision_array.add(ingredient_combo_4.getSelectedIndex());
+		}
+		if(ingredient_combo_5 != null){
+			collision_array.add(catagory_combo_5.getSelectedIndex());
+			collision_array.add(ingredient_combo_5.getSelectedIndex());
+		}
+		if(ingredient_combo_6 != null){
+			collision_array.add(catagory_combo_6.getSelectedIndex());
+			collision_array.add(ingredient_combo_6.getSelectedIndex());
+		}
+		if(ingredient_combo_7 != null){
+			collision_array.add(catagory_combo_7.getSelectedIndex());
+			collision_array.add(ingredient_combo_7.getSelectedIndex());
+		}
+		if(ingredient_combo_8 != null){
+			collision_array.add(catagory_combo_8.getSelectedIndex());
+			collision_array.add(ingredient_combo_8.getSelectedIndex());
+		}
+		System.out.println(collision_array);
+		ImageIcon yes_ico = new ImageIcon("bin/assets/yes.png","");
+		ImageIcon no_ico = new ImageIcon("bin/assets/no.png","");
+		Map<Object, Icon> icons = new HashMap<Object, Icon>();
+
+		if(!collision_array.equals(gemtListe_1)){
+			icons.put("dag 1", yes_ico);
+		}
+		else icons.put("dag 1", no_ico);
+		
+		if(!collision_array.equals(gemtListe_2)){
+			icons.put("dag 2", yes_ico);
+		}
+		else icons.put("dag 2", no_ico);
+		
+		if(!collision_array.equals(gemtListe_3)){
+			icons.put("dag 3", yes_ico);
+		}
+		else icons.put("dag 3", no_ico);
+		
+		if(!collision_array.equals(gemtListe_4)){
+			icons.put("dag 4", yes_ico);
+		}
+		else icons.put("dag 4", no_ico);
+		
+		if(!collision_array.equals(gemtListe_5)){
+			icons.put("dag 5", yes_ico);
+		}
+		else icons.put("dag 5", no_ico);
+		
+		if(!collision_array.equals(gemtListe_6)){
+			icons.put("dag 6", yes_ico);
+		}
+		else icons.put("dag 6", no_ico);
+		
+		if(!collision_array.equals(gemtListe_7)){
+			icons.put("dag 7", yes_ico);
+		}
+		else icons.put("dag 7", no_ico);
+
+		if(!collision_array.equals(gemtListe_8)){
+			icons.put("dag 8", yes_ico);
+		}
+		else icons.put("dag 8", no_ico);
+		
+		if(!collision_array.equals(gemtListe_9)){
+			icons.put("dag 9", yes_ico);
+		}
+		else icons.put("dag 9", no_ico);
+		
+		if(!collision_array.equals(gemtListe_10)){
+			icons.put("dag 10", yes_ico);
+		}
+		else icons.put("dag 10", no_ico);
+		
+		if(!collision_array.equals(gemtListe_11)){
+			icons.put("dag 11", yes_ico);
+		}
+		else icons.put("dag 11", no_ico);
+		
+		if(!collision_array.equals(gemtListe_12)){
+			icons.put("dag 12", yes_ico);
+		}
+		else icons.put("dag 12", no_ico);
+		
+		if(!collision_array.equals(gemtListe_13)){
+			icons.put("dag 13", yes_ico);
+		}
+		else icons.put("dag 13", no_ico);
+		
+		if(!collision_array.equals(gemtListe_14)){
+			icons.put("dag 14", yes_ico);
+		}
+		else icons.put("dag 14", no_ico);
+		
+		list.setCellRenderer(new IconListRenderer(icons));
 	}
 
 }
