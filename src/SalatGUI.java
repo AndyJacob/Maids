@@ -31,6 +31,11 @@ import java.awt.Dialog.ModalExclusionType;
 import java.awt.Window.Type;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,6 +45,8 @@ import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.plaf.metal.MetalIconFactory;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 
 public class SalatGUI extends JFrame {
@@ -129,6 +136,7 @@ public class SalatGUI extends JFrame {
 	private ArrayList gemtListe_12;
 	private ArrayList gemtListe_13;
 	private ArrayList gemtListe_14;
+	private JButton btnCheck;
 
 	/**
 	 * Launch the application.
@@ -150,6 +158,15 @@ public class SalatGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public SalatGUI() {
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent arg0) {
+				try {
+					SaveArray();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		setResizable(false);
 		personer = 1;
 		k = new Kød_array();
@@ -181,30 +198,281 @@ public class SalatGUI extends JFrame {
 		statistic_panel_inner1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		statistic_panel.add(statistic_panel_inner1);
 
+		gemtListe_1 = new ArrayList();
+		gemtListe_2 = new ArrayList();
+		gemtListe_3 = new ArrayList();
+		gemtListe_4 = new ArrayList();
+		gemtListe_5 = new ArrayList();
+		gemtListe_6 = new ArrayList();
+		gemtListe_7 = new ArrayList();
+		gemtListe_8 = new ArrayList();
+		gemtListe_9 = new ArrayList();
+		gemtListe_10 = new ArrayList();
+		gemtListe_11 = new ArrayList();
+		gemtListe_12 = new ArrayList();
+		gemtListe_13 = new ArrayList();
+		gemtListe_14 = new ArrayList();
+
+		loadArray("gemtListe_1", gemtListe_1);
+		loadArray("gemtListe_2", gemtListe_2);
 
 		list = new JList();
 		list.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount() == 2){
-					if(list.getSelectedIndex() == 0){
-						gemtListe_1.get(1);
+					if(list.getSelectedIndex() == 0 && !gemtListe_1.isEmpty()){
 						catagory_combo_1.setSelectedIndex((int) gemtListe_1.get(1));
-						//						catagory_combo_2.setSelectedIndex();
-						//						catagory_combo_3.setSelectedIndex();
-						//						catagory_combo_4.setSelectedIndex();
-						//						catagory_combo_5.setSelectedIndex();
-						//						catagory_combo_6.setSelectedIndex();
-						//						catagory_combo_7.setSelectedIndex();
-						//						catagory_combo_8.setSelectedIndex();
+						catagory_combo_2.setSelectedIndex((int) gemtListe_1.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_1.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_1.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_1.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_1.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_1.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_1.get(15));
 						ingredient_combo_1.setSelectedIndex((int) gemtListe_1.get(2));
-						//						ingredient_combo_2.setSelectedIndex(index_random_2);
-						//						ingredient_combo_3.setSelectedIndex(index_random_3);
-						//						ingredient_combo_4.setSelectedIndex(index_random_4);
-						//						ingredient_combo_5.setSelectedIndex(index_random_5);
-						//						ingredient_combo_6.setSelectedIndex(index_random_6);
-						//						ingredient_combo_7.setSelectedIndex(index_random_7);
-						//						ingredient_combo_8.setSelectedIndex(index_random_8);
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_1.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_1.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_1.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_1.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_1.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_1.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_1.get(16));
 					}
+					else if(list.getSelectedIndex() == 1 && !gemtListe_2.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_2.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_2.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_2.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_2.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_2.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_2.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_2.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_2.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_2.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_2.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_2.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_2.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_2.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_2.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_2.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_2.get(16));
+					}
+					else if(list.getSelectedIndex() == 2 && !gemtListe_3.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_3.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_3.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_3.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_3.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_3.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_3.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_3.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_3.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_3.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_3.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_3.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_3.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_3.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_3.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_3.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_3.get(16));
+					}
+					else if(list.getSelectedIndex() == 3 && !gemtListe_4.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_4.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_4.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_4.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_4.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_4.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_4.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_4.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_4.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_4.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_4.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_4.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_4.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_4.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_4.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_4.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_4.get(16));
+					}
+					else if(list.getSelectedIndex() == 4 && !gemtListe_5.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_5.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_5.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_5.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_5.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_5.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_5.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_5.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_5.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_5.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_5.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_5.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_5.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_5.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_5.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_5.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_5.get(16));
+					}
+					else if(list.getSelectedIndex() == 5 && !gemtListe_6.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_6.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_6.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_6.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_6.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_6.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_6.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_6.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_6.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_6.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_6.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_6.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_6.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_6.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_6.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_6.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_6.get(16));
+					}
+					else if(list.getSelectedIndex() == 6 && !gemtListe_7.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_7.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_7.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_7.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_7.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_7.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_7.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_7.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_7.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_7.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_7.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_7.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_7.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_7.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_7.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_7.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_7.get(16));
+					}
+					else if(list.getSelectedIndex() == 7 && !gemtListe_8.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_8.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_8.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_8.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_8.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_8.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_8.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_8.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_8.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_8.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_8.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_8.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_8.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_8.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_8.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_8.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_8.get(16));
+					}
+					else if(list.getSelectedIndex() == 8 && !gemtListe_9.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_9.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_9.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_9.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_9.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_9.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_9.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_9.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_9.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_9.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_9.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_9.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_9.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_9.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_9.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_9.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_9.get(16));
+					}
+					else if(list.getSelectedIndex() == 9 && !gemtListe_10.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_10.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_10.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_10.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_10.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_10.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_10.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_10.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_10.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_10.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_10.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_10.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_10.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_10.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_10.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_10.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_10.get(16));
+					}
+					else if(list.getSelectedIndex() == 10 && !gemtListe_11.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_11.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_11.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_11.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_11.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_11.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_11.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_11.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_11.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_11.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_11.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_11.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_11.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_11.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_11.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_11.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_11.get(16));
+					}
+					else if(list.getSelectedIndex() == 11 && !gemtListe_12.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_12.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_12.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_12.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_12.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_12.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_12.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_12.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_12.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_12.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_12.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_12.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_12.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_12.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_12.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_12.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_12.get(16));
+					}
+					else if(list.getSelectedIndex() == 12 && !gemtListe_13.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_13.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_13.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_13.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_13.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_13.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_13.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_13.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_13.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_13.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_13.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_13.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_13.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_13.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_13.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_13.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_13.get(16));
+					}
+					else if(list.getSelectedIndex() == 13 && !gemtListe_14.isEmpty()){
+						catagory_combo_1.setSelectedIndex((int) gemtListe_14.get(1));
+						catagory_combo_2.setSelectedIndex((int) gemtListe_14.get(3));
+						catagory_combo_3.setSelectedIndex((int) gemtListe_14.get(5));
+						catagory_combo_4.setSelectedIndex((int) gemtListe_14.get(7));
+						catagory_combo_5.setSelectedIndex((int) gemtListe_14.get(9));
+						catagory_combo_6.setSelectedIndex((int) gemtListe_14.get(11));
+						catagory_combo_7.setSelectedIndex((int) gemtListe_14.get(13));
+						catagory_combo_8.setSelectedIndex((int) gemtListe_14.get(15));
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_14.get(2));
+						ingredient_combo_2.setSelectedIndex((int) gemtListe_14.get(4));
+						ingredient_combo_3.setSelectedIndex((int) gemtListe_14.get(6));
+						ingredient_combo_4.setSelectedIndex((int) gemtListe_14.get(8));
+						ingredient_combo_5.setSelectedIndex((int) gemtListe_14.get(10));
+						ingredient_combo_6.setSelectedIndex((int) gemtListe_14.get(12));
+						ingredient_combo_7.setSelectedIndex((int) gemtListe_14.get(14));
+						ingredient_combo_8.setSelectedIndex((int) gemtListe_14.get(16));
+					}
+					
 				}
 			}
 		});
@@ -449,7 +717,6 @@ public class SalatGUI extends JFrame {
 				else if(cat_8.equals("s")){
 					gram_8.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_8.getSelectedIndex()).getVeagt())*personer));
 				}
-				checkCollisions();
 			}
 
 			private void setCombo() {
@@ -690,6 +957,14 @@ public class SalatGUI extends JFrame {
 		personer_ = new JTextField();
 		person_panel.add(personer_);
 		personer_.setColumns(5);
+
+		btnCheck = new JButton("Check");
+		btnCheck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				checkCollisions();
+			}
+		});
+		buttom_panel1.add(btnCheck, "2, 10");
 		if(personer_.getText().equals(""))
 		{
 			personer_.setText("1");
@@ -785,7 +1060,6 @@ public class SalatGUI extends JFrame {
 						cat_1 = "t";
 					}
 				}
-				checkCollisions();
 			}
 
 		});
@@ -837,7 +1111,6 @@ public class SalatGUI extends JFrame {
 						cat_2 = "t";
 					}
 				}
-				checkCollisions();
 			}
 		});
 
@@ -897,7 +1170,6 @@ public class SalatGUI extends JFrame {
 						cat_3 = "t";
 					}
 				}
-				checkCollisions();
 			}
 		});
 
@@ -958,7 +1230,6 @@ public class SalatGUI extends JFrame {
 						cat_4 = "t";
 					}
 				}
-				checkCollisions();
 			}
 		});
 
@@ -1019,7 +1290,6 @@ public class SalatGUI extends JFrame {
 						cat_5 = "t";
 					}
 				}
-				checkCollisions();
 			}
 		});
 
@@ -1082,7 +1352,6 @@ public class SalatGUI extends JFrame {
 						cat_6 = "t";
 					}
 				}
-				checkCollisions();
 			}
 		});
 
@@ -1143,7 +1412,6 @@ public class SalatGUI extends JFrame {
 						cat_7 = "t";
 					}
 				}
-				checkCollisions();
 			}
 		});
 
@@ -1205,7 +1473,6 @@ public class SalatGUI extends JFrame {
 						cat_8 = "t";
 					}
 				}
-				checkCollisions();
 			}
 		});
 
@@ -1236,62 +1503,7 @@ public class SalatGUI extends JFrame {
 		panel_8.add(label_6);
 
 
-		ingredient_combo_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				checkCollisions();
-			}
-		});
-		ingredient_combo_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				checkCollisions();
-			}
-		});
-		ingredient_combo_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				checkCollisions();
-			}
-		});
-		ingredient_combo_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				checkCollisions();
-			}
-		});
-		ingredient_combo_5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				checkCollisions();
-			}
-		});
-		ingredient_combo_6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				checkCollisions();
-			}
-		});
-		ingredient_combo_7.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				checkCollisions();
-			}
-		});
-		ingredient_combo_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				checkCollisions();
-			}
-		});
 
-
-		gemtListe_1 = new ArrayList();
-		gemtListe_2 = new ArrayList();
-		gemtListe_3 = new ArrayList();
-		gemtListe_4 = new ArrayList();
-		gemtListe_5 = new ArrayList();
-		gemtListe_6 = new ArrayList();
-		gemtListe_7 = new ArrayList();
-		gemtListe_8 = new ArrayList();
-		gemtListe_9 = new ArrayList();
-		gemtListe_10 = new ArrayList();
-		gemtListe_11 = new ArrayList();
-		gemtListe_12 = new ArrayList();
-		gemtListe_13 = new ArrayList();
-		gemtListe_14 = new ArrayList();
 
 		btnGemDagensSalat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1593,6 +1805,7 @@ public class SalatGUI extends JFrame {
 		});
 	}		
 	public void warning(){
+
 		if(catagory_combo_1.getSelectedIndex() == 1 &&
 				catagory_combo_2.getSelectedIndex() == 4 &&
 				catagory_combo_3.getSelectedIndex() == 4 &&
@@ -1642,137 +1855,340 @@ public class SalatGUI extends JFrame {
 			collision_array.add(catagory_combo_8.getSelectedIndex());
 			collision_array.add(ingredient_combo_8.getSelectedIndex());
 		}
-		System.out.println(collision_array);
+
 		ImageIcon yes_ico = new ImageIcon("bin/assets/yes.png","");
 		ImageIcon no_ico = new ImageIcon("bin/assets/no.png","");
 		Map<Object, Icon> icons = new HashMap<Object, Icon>();
+		ArrayList tempArray = new ArrayList();
 
-		if(!collision_array.equals(gemtListe_1)){
+		collision_array.remove(0);
+		System.out.println(collision_array);
+		tempArray.addAll(gemtListe_1);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		System.out.println(tempArray);
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 1", yes_ico);
 		}
 		else icons.put("dag 1", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_2)){
+		tempArray.addAll(gemtListe_2);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 2", yes_ico);
 		}
 		else icons.put("dag 2", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_3)){
+		tempArray.addAll(gemtListe_3);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 3", yes_ico);
 		}
 		else icons.put("dag 3", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_4)){
+		tempArray.addAll(gemtListe_4);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 4", yes_ico);
 		}
 		else icons.put("dag 4", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_5)){
+		tempArray.addAll(gemtListe_5);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 5", yes_ico);
 		}
 		else icons.put("dag 5", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_6)){
+		tempArray.addAll(gemtListe_6);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 6", yes_ico);
 		}
 		else icons.put("dag 6", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_7)){
+		tempArray.addAll(gemtListe_7);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 7", yes_ico);
 		}
 		else icons.put("dag 7", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_8)){
+		tempArray.addAll(gemtListe_8);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 8", yes_ico);
 		}
 		else icons.put("dag 8", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_9)){
+		tempArray.addAll(gemtListe_9);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 9", yes_ico);
 		}
 		else icons.put("dag 9", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_10)){
+		tempArray.addAll(gemtListe_10);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 10", yes_ico);
 		}
 		else icons.put("dag 10", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_11)){
+		tempArray.addAll(gemtListe_11);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 11", yes_ico);
 		}
 		else icons.put("dag 11", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_12)){
+		tempArray.addAll(gemtListe_12);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 12", yes_ico);
 		}
 		else icons.put("dag 12", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_13)){
+		tempArray.addAll(gemtListe_13);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 13", yes_ico);
 		}
 		else icons.put("dag 13", no_ico);
+		tempArray.clear();
 
-		if(!collision_array.equals(gemtListe_14)){
+		tempArray.addAll(gemtListe_14);
+		if(!tempArray.isEmpty()){
+			tempArray.remove(0);
+		}
+		if(!collision_array.equals(tempArray)){
 			icons.put("dag 14", yes_ico);
 		}
 		else icons.put("dag 14", no_ico);
+		tempArray.clear();
 
 		list.setCellRenderer(new IconListRenderer(icons));
 	}
 	public void SaveArray() throws IOException {
 
-
-		gemtListe_1 = new ArrayList<String>();
-		gemtListe_1.add("0");
-		gemtListe_1.add("1");
-		gemtListe_1.add("2");
-		gemtListe_1.add("3");
-		filnavn = new ArrayList<ArrayList<Object>>();
-		filnavn.get(0).add(gemtListe_1);
-
-		//		filnavn.add(gemtListe_2);
-		//		filnavn.add(gemtListe_3);
-		//		filnavn.add(gemtListe_4);
-		//		filnavn.add(gemtListe_5);
-		//		filnavn.add(gemtListe_6);
-		//		filnavn.add(gemtListe_7);
-		//		filnavn.add(gemtListe_8);
-		//		filnavn.add(gemtListe_9);
-		//		filnavn.add(gemtListe_10);
-		//		filnavn.add(gemtListe_11);
-		//		filnavn.add(gemtListe_12);
-		//		filnavn.add(gemtListe_13);
-		//		filnavn.add(gemtListe_14);
-
-
-		FileWriter fstream = null;
+		FileWriter fstream1 = null;
+		FileWriter fstream2 = null;
+		FileWriter fstream3 = null;
+		FileWriter fstream4 = null;
+		FileWriter fstream5 = null;
+		FileWriter fstream6 = null;
+		FileWriter fstream7 = null;
+		FileWriter fstream8 = null;
+		FileWriter fstream9 = null;
+		FileWriter fstream10 = null;
+		FileWriter fstream11 = null;
+		FileWriter fstream12 = null;
+		FileWriter fstream13 = null;
+		FileWriter fstream14 = null;
 		try {
-			for(int k=0; filnavn.size()>k ; k++){
-				System.out.println(filnavn.get(k));
-				fstream = new FileWriter(filnavn.get(k).toString());
-				BufferedWriter out = new BufferedWriter(fstream);
-				for(int i=0; filnavn.get(k).size()>i ; i++){
-					try {
-						out.write(filnavn.get(k).get(i)+ "\n");
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+			fstream1 = new FileWriter("gemtListe_1");
+			BufferedWriter out1 = new BufferedWriter(fstream1);
+			for(int i=0; gemtListe_1.size()>i ; i++){
+				try {
+					out1.write(gemtListe_1.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-				out.close();
-
 			}
+			fstream2 = new FileWriter("gemtListe_2");
+			BufferedWriter out2 = new BufferedWriter(fstream2);
+			for(int i=0; gemtListe_2.size()>i ; i++){
+				try {
+					out2.write(gemtListe_2.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream3 = new FileWriter("gemtListe_3");
+			BufferedWriter out3 = new BufferedWriter(fstream3);
+			for(int i=0; gemtListe_3.size()>i ; i++){
+				try {
+					out3.write(gemtListe_3.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream4 = new FileWriter("gemtListe_4");
+			BufferedWriter out4 = new BufferedWriter(fstream4);
+			for(int i=0; gemtListe_4.size()>i ; i++){
+				try {
+					out4.write(gemtListe_4.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}			
+			fstream5 = new FileWriter("gemtListe_5");
+			BufferedWriter out5 = new BufferedWriter(fstream5);
+			for(int i=0; gemtListe_5.size()>i ; i++){
+				try {
+					out5.write(gemtListe_5.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream6 = new FileWriter("gemtListe_6");
+			BufferedWriter out6 = new BufferedWriter(fstream6);
+			for(int i=0; gemtListe_6.size()>i ; i++){
+				try {
+					out6.write(gemtListe_6.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream7 = new FileWriter("gemtListe_7");
+			BufferedWriter out7 = new BufferedWriter(fstream7);
+			for(int i=0; gemtListe_7.size()>i ; i++){
+				try {
+					out7.write(gemtListe_7.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream8 = new FileWriter("gemtListe_8");
+			BufferedWriter out8 = new BufferedWriter(fstream8);
+			for(int i=0; gemtListe_8.size()>i ; i++){
+				try {
+					out8.write(gemtListe_8.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream9 = new FileWriter("gemtListe_9");
+			BufferedWriter out9 = new BufferedWriter(fstream9);
+			for(int i=0; gemtListe_9.size()>i ; i++){
+				try {
+					out9.write(gemtListe_9.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream10 = new FileWriter("gemtListe_10");
+			BufferedWriter out10 = new BufferedWriter(fstream10);
+			for(int i=0; gemtListe_10.size()>i ; i++){
+				try {
+					out10.write(gemtListe_10.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream11 = new FileWriter("gemtListe_11");
+			BufferedWriter out11 = new BufferedWriter(fstream11);
+			for(int i=0; gemtListe_11.size()>i ; i++){
+				try {
+					out11.write(gemtListe_11.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream12 = new FileWriter("gemtListe_12");
+			BufferedWriter out12 = new BufferedWriter(fstream12);
+			for(int i=0; gemtListe_12.size()>i ; i++){
+				try {
+					out12.write(gemtListe_12.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream13 = new FileWriter("gemtListe_13");
+			BufferedWriter out13 = new BufferedWriter(fstream13);
+			for(int i=0; gemtListe_13.size()>i ; i++){
+				try {
+					out13.write(gemtListe_13.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			fstream14 = new FileWriter("gemtListe_14");
+			BufferedWriter out14 = new BufferedWriter(fstream1);
+			for(int i=0; gemtListe_14.size()>i ; i++){
+				try {
+					out14.write(gemtListe_14.get(i)+ "\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			out1.close();
+			out2.close();
+			out3.close();
+			out4.close();
+			out5.close();
+			out6.close();
+			out7.close();
+			out8.close();
+			out9.close();
+			out10.close();
+			out11.close();
+			out12.close();
+			out13.close();
+			out14.close();
+
+
 
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
-
-
-
-
 	}
-}
-
+	public void loadArray(String filename, ArrayList a){
+		BufferedReader br = null;
+		try {
+			String sCurrentLine;
+			br = new BufferedReader(new FileReader(filename));
+			while ((sCurrentLine = br.readLine()) != null) {
+				System.out.println(sCurrentLine);
+				a.add(Integer.parseInt(sCurrentLine));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)br.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
 }
 
