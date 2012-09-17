@@ -861,8 +861,8 @@ public class SalatGUI extends JFrame {
 				else if(cat_4.equals("t")){
 					gram_4.setText(Integer.toString(Integer.parseInt(t.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
 				}
-				else if(cat_5.equals("s")){
-					gram_5.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
+				else if(cat_4.equals("s")){
+					gram_4.setText(Integer.toString(Integer.parseInt(s.getObject(ingredient_combo_4.getSelectedIndex()).getVeagt())*personer));
 				}
 
 				if(cat_5.equals("f")){
