@@ -472,7 +472,7 @@ public class SalatGUI extends JFrame {
 						ingredient_combo_7.setSelectedIndex((int) gemtListe_14.get(14));
 						ingredient_combo_8.setSelectedIndex((int) gemtListe_14.get(16));
 					}
-					
+					//Ovenstående casts?
 				}
 			}
 		});
