@@ -189,21 +189,21 @@ public class SalatGUI extends JFrame {
 					if(list.getSelectedIndex() == 0){
 						gemtListe_1.get(1);
 						catagory_combo_1.setSelectedIndex((int) gemtListe_1.get(1));
-//						catagory_combo_2.setSelectedIndex();
-//						catagory_combo_3.setSelectedIndex();
-//						catagory_combo_4.setSelectedIndex();
-//						catagory_combo_5.setSelectedIndex();
-//						catagory_combo_6.setSelectedIndex();
-//						catagory_combo_7.setSelectedIndex();
-//						catagory_combo_8.setSelectedIndex();
+						//						catagory_combo_2.setSelectedIndex();
+						//						catagory_combo_3.setSelectedIndex();
+						//						catagory_combo_4.setSelectedIndex();
+						//						catagory_combo_5.setSelectedIndex();
+						//						catagory_combo_6.setSelectedIndex();
+						//						catagory_combo_7.setSelectedIndex();
+						//						catagory_combo_8.setSelectedIndex();
 						ingredient_combo_1.setSelectedIndex((int) gemtListe_1.get(2));
-//						ingredient_combo_2.setSelectedIndex(index_random_2);
-//						ingredient_combo_3.setSelectedIndex(index_random_3);
-//						ingredient_combo_4.setSelectedIndex(index_random_4);
-//						ingredient_combo_5.setSelectedIndex(index_random_5);
-//						ingredient_combo_6.setSelectedIndex(index_random_6);
-//						ingredient_combo_7.setSelectedIndex(index_random_7);
-//						ingredient_combo_8.setSelectedIndex(index_random_8);
+						//						ingredient_combo_2.setSelectedIndex(index_random_2);
+						//						ingredient_combo_3.setSelectedIndex(index_random_3);
+						//						ingredient_combo_4.setSelectedIndex(index_random_4);
+						//						ingredient_combo_5.setSelectedIndex(index_random_5);
+						//						ingredient_combo_6.setSelectedIndex(index_random_6);
+						//						ingredient_combo_7.setSelectedIndex(index_random_7);
+						//						ingredient_combo_8.setSelectedIndex(index_random_8);
 					}
 				}
 			}
@@ -1651,32 +1651,32 @@ public class SalatGUI extends JFrame {
 			icons.put("dag 1", yes_ico);
 		}
 		else icons.put("dag 1", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_2)){
 			icons.put("dag 2", yes_ico);
 		}
 		else icons.put("dag 2", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_3)){
 			icons.put("dag 3", yes_ico);
 		}
 		else icons.put("dag 3", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_4)){
 			icons.put("dag 4", yes_ico);
 		}
 		else icons.put("dag 4", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_5)){
 			icons.put("dag 5", yes_ico);
 		}
 		else icons.put("dag 5", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_6)){
 			icons.put("dag 6", yes_ico);
 		}
 		else icons.put("dag 6", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_7)){
 			icons.put("dag 7", yes_ico);
 		}
@@ -1686,39 +1686,93 @@ public class SalatGUI extends JFrame {
 			icons.put("dag 8", yes_ico);
 		}
 		else icons.put("dag 8", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_9)){
 			icons.put("dag 9", yes_ico);
 		}
 		else icons.put("dag 9", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_10)){
 			icons.put("dag 10", yes_ico);
 		}
 		else icons.put("dag 10", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_11)){
 			icons.put("dag 11", yes_ico);
 		}
 		else icons.put("dag 11", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_12)){
 			icons.put("dag 12", yes_ico);
 		}
 		else icons.put("dag 12", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_13)){
 			icons.put("dag 13", yes_ico);
 		}
 		else icons.put("dag 13", no_ico);
-		
+
 		if(!collision_array.equals(gemtListe_14)){
 			icons.put("dag 14", yes_ico);
 		}
 		else icons.put("dag 14", no_ico);
-		
+
 		list.setCellRenderer(new IconListRenderer(icons));
 	}
+	public void SaveArray() throws IOException {
+
+
+		gemtListe_1 = new ArrayList<String>();
+		gemtListe_1.add("0");
+		gemtListe_1.add("1");
+		gemtListe_1.add("2");
+		gemtListe_1.add("3");
+		filnavn = new ArrayList<ArrayList<Object>>();
+		filnavn.get(0).add(gemtListe_1);
+
+		//		filnavn.add(gemtListe_2);
+		//		filnavn.add(gemtListe_3);
+		//		filnavn.add(gemtListe_4);
+		//		filnavn.add(gemtListe_5);
+		//		filnavn.add(gemtListe_6);
+		//		filnavn.add(gemtListe_7);
+		//		filnavn.add(gemtListe_8);
+		//		filnavn.add(gemtListe_9);
+		//		filnavn.add(gemtListe_10);
+		//		filnavn.add(gemtListe_11);
+		//		filnavn.add(gemtListe_12);
+		//		filnavn.add(gemtListe_13);
+		//		filnavn.add(gemtListe_14);
+
+
+		FileWriter fstream = null;
+		try {
+			for(int k=0; filnavn.size()>k ; k++){
+				System.out.println(filnavn.get(k));
+				fstream = new FileWriter(filnavn.get(k).toString());
+				BufferedWriter out = new BufferedWriter(fstream);
+				for(int i=0; filnavn.get(k).size()>i ; i++){
+					try {
+						out.write(filnavn.get(k).get(i)+ "\n");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				out.close();
+
+			}
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+
+
+
+
+	}
+}
 
 }
 
