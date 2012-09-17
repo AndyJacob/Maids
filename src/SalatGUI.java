@@ -2236,78 +2236,78 @@ public class SalatGUI extends JFrame {
 		else mc.add(999);
 
 		ImageIcon yes_ico = new ImageIcon("bin/assets/yes.png","");
-		ImageIcon no_ico = new ImageIcon("bin/assets/no.png","");
+		ImageIcon meat_ico = new ImageIcon("bin/assets/meat.png","");
 		Map<Object, Icon> icons = new HashMap<Object, Icon>();
 
 		if(!mc.get(0).equals(ci)){
 			icons.put("dag 1", yes_ico);
 		}
-		else icons.put("dag 1", no_ico);
+		else icons.put("dag 1", meat_ico);
 
 		if(!mc.get(1).equals(ci)){
 			icons.put("dag 2", yes_ico);
 		}
-		else icons.put("dag 2", no_ico);
+		else icons.put("dag 2", meat_ico);
 
 		if(!mc.get(2).equals(ci)){
 			icons.put("dag 3", yes_ico);
 		}
-		else icons.put("dag 3", no_ico);
+		else icons.put("dag 3", meat_ico);
 		
 		if(!mc.get(3).equals(ci)){
 			icons.put("dag 4", yes_ico);
 		}
-		else icons.put("dag 4", no_ico);
+		else icons.put("dag 4", meat_ico);
 		
 		if(!mc.get(4).equals(ci)){
 			icons.put("dag 5", yes_ico);
 		}
-		else icons.put("dag 5", no_ico);
+		else icons.put("dag 5", meat_ico);
 		
 		if(!mc.get(5).equals(ci)){
 			icons.put("dag 6", yes_ico);
 		}
-		else icons.put("dag 6", no_ico);
+		else icons.put("dag 6", meat_ico);
 		
 		if(!mc.get(6).equals(ci)){
 			icons.put("dag 7", yes_ico);
 		}
-		else icons.put("dag 7", no_ico);
+		else icons.put("dag 7", meat_ico);
 		
 		if(!mc.get(7).equals(ci)){
 			icons.put("dag 8", yes_ico);
 		}
-		else icons.put("dag 8", no_ico);
+		else icons.put("dag 8", meat_ico);
 		
 		if(!mc.get(8).equals(ci)){
 			icons.put("dag 9", yes_ico);
 		}
-		else icons.put("dag 9", no_ico);
+		else icons.put("dag 9", meat_ico);
 		
 		if(!mc.get(9).equals(ci)){
 			icons.put("dag 10", yes_ico);
 		}
-		else icons.put("dag 10", no_ico);
+		else icons.put("dag 10", meat_ico);
 		
 		if(!mc.get(10).equals(ci)){
 			icons.put("dag 11", yes_ico);
 		}
-		else icons.put("dag 11", no_ico);
+		else icons.put("dag 11", meat_ico);
 		
 		if(!mc.get(11).equals(ci)){
 			icons.put("dag 12", yes_ico);
 		}
-		else icons.put("dag 12", no_ico);
+		else icons.put("dag 12", meat_ico);
 		
 		if(!mc.get(12).equals(ci)){
 			icons.put("dag 13", yes_ico);
 		}
-		else icons.put("dag 13", no_ico);
+		else icons.put("dag 13", meat_ico);
 		
 		if(!mc.get(13).equals(ci)){
 			icons.put("dag 14", yes_ico);
 		}
-		else icons.put("dag 14", no_ico);
+		else icons.put("dag 14", meat_ico);
 		list.setCellRenderer(new IconListRenderer(icons));
 	}
 }
