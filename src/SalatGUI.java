@@ -962,6 +962,7 @@ public class SalatGUI extends JFrame {
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				checkCollisions();
+				meat_collision();
 			}
 		});
 		buttom_panel1.add(btnCheck, "2, 10");
@@ -1526,7 +1527,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_1.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_1.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_1.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_1);
 				}
 				else if(list.getSelectedValue().equals("dag 2")){
 					gemtListe_2.clear();
@@ -1547,7 +1547,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_2.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_2.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_2.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_2);
 				}
 				else if(list.getSelectedValue().equals("dag 3")){
 					gemtListe_3.clear();
@@ -1568,7 +1567,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_3.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_3.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_3.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_3);
 				}
 				else if(list.getSelectedValue().equals("dag 4")){
 					gemtListe_4.clear();
@@ -1589,7 +1587,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_4.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_4.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_4.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_4);
 				}
 				else if(list.getSelectedValue().equals("dag 5")){
 					gemtListe_5.clear();
@@ -1610,7 +1607,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_5.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_5.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_5.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_5);
 				}
 				else if(list.getSelectedValue().equals("dag 6")){
 					gemtListe_6.clear();
@@ -1631,7 +1627,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_6.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_6.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_6.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_6);
 				}
 				else if(list.getSelectedValue().equals("dag 7")){
 					gemtListe_7.clear();
@@ -1652,7 +1647,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_7.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_7.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_7.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_7);
 				}
 				else if(list.getSelectedValue().equals("dag 8")){
 					gemtListe_8.clear();
@@ -1673,7 +1667,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_8.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_8.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_8.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_8);
 				}
 				else if(list.getSelectedValue().equals("dag 9")){
 					gemtListe_9.clear();
@@ -1694,7 +1687,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_9.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_9.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_9.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_9);
 				}
 				else if(list.getSelectedValue().equals("dag 10")){
 					gemtListe_10.clear();
@@ -1715,7 +1707,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_10.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_10.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_10.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_10);
 				}
 				else if(list.getSelectedValue().equals("dag 11")){
 					gemtListe_11.clear();
@@ -1736,7 +1727,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_11.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_11.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_11.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_11);
 				}
 				else if(list.getSelectedValue().equals("dag 12")){
 					gemtListe_12.clear();
@@ -1757,7 +1747,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_12.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_12.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_12.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_2);
 				}
 				else if(list.getSelectedValue().equals("dag 13")){
 					gemtListe_13.clear();
@@ -1778,7 +1767,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_13.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_13.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_13.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_13);
 				}
 				else if(list.getSelectedValue().equals("dag 14")){
 					gemtListe_14.clear();
@@ -1799,7 +1787,6 @@ public class SalatGUI extends JFrame {
 					gemtListe_14.add(ingredient_combo_7.getSelectedIndex());
 					gemtListe_14.add(catagory_combo_8.getSelectedIndex());
 					gemtListe_14.add(ingredient_combo_8.getSelectedIndex());
-					System.out.println(gemtListe_14);
 				}
 			}
 		});
@@ -1862,12 +1849,10 @@ public class SalatGUI extends JFrame {
 		ArrayList tempArray = new ArrayList();
 
 		collision_array.remove(0);
-		System.out.println(collision_array);
 		tempArray.addAll(gemtListe_1);
 		if(!tempArray.isEmpty()){
 			tempArray.remove(0);
 		}
-		System.out.println(tempArray);
 		if(!collision_array.equals(tempArray)){
 			icons.put("dag 1", yes_ico);
 		}
@@ -2177,7 +2162,6 @@ public class SalatGUI extends JFrame {
 			String sCurrentLine;
 			br = new BufferedReader(new FileReader(filename));
 			while ((sCurrentLine = br.readLine()) != null) {
-				System.out.println(sCurrentLine);
 				a.add(Integer.parseInt(sCurrentLine));
 			}
 		} catch (IOException e) {
@@ -2189,6 +2173,142 @@ public class SalatGUI extends JFrame {
 				ex.printStackTrace();
 			}
 		}
+	}
+	public void meat_collision(){
+		Object ci = ingredient_combo_1.getSelectedIndex();
+
+		ArrayList mc = new ArrayList();
+		if(!gemtListe_1.isEmpty()){
+			mc.add(gemtListe_1.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_2.isEmpty()){
+			mc.add(gemtListe_2.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_3.isEmpty()){
+			mc.add(gemtListe_3.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_4.isEmpty()){
+			mc.add(gemtListe_4.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_5.isEmpty()){
+			mc.add(gemtListe_5.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_6.isEmpty()){
+			mc.add(gemtListe_6.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_7.isEmpty()){
+			mc.add(gemtListe_7.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_8.isEmpty()){
+			mc.add(gemtListe_8.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_9.isEmpty()){
+			mc.add(gemtListe_9.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_10.isEmpty()){
+			mc.add(gemtListe_10.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_11.isEmpty()){
+			mc.add(gemtListe_11.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_12.isEmpty()){
+			mc.add(gemtListe_12.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_13.isEmpty()){
+			mc.add(gemtListe_13.get(2));
+		}
+		else mc.add(999);
+		if(!gemtListe_14.isEmpty()){
+			mc.add(gemtListe_14.get(2));
+		}
+		else mc.add(999);
+
+		ImageIcon yes_ico = new ImageIcon("bin/assets/yes.png","");
+		ImageIcon no_ico = new ImageIcon("bin/assets/no.png","");
+		Map<Object, Icon> icons = new HashMap<Object, Icon>();
+
+		if(!mc.get(0).equals(ci)){
+			icons.put("dag 1", yes_ico);
+		}
+		else icons.put("dag 1", no_ico);
+
+		if(!mc.get(1).equals(ci)){
+			icons.put("dag 2", yes_ico);
+		}
+		else icons.put("dag 2", no_ico);
+
+		if(!mc.get(2).equals(ci)){
+			icons.put("dag 3", yes_ico);
+		}
+		else icons.put("dag 3", no_ico);
+		
+		if(!mc.get(3).equals(ci)){
+			icons.put("dag 4", yes_ico);
+		}
+		else icons.put("dag 4", no_ico);
+		
+		if(!mc.get(4).equals(ci)){
+			icons.put("dag 5", yes_ico);
+		}
+		else icons.put("dag 5", no_ico);
+		
+		if(!mc.get(5).equals(ci)){
+			icons.put("dag 6", yes_ico);
+		}
+		else icons.put("dag 6", no_ico);
+		
+		if(!mc.get(6).equals(ci)){
+			icons.put("dag 7", yes_ico);
+		}
+		else icons.put("dag 7", no_ico);
+		
+		if(!mc.get(7).equals(ci)){
+			icons.put("dag 8", yes_ico);
+		}
+		else icons.put("dag 8", no_ico);
+		
+		if(!mc.get(8).equals(ci)){
+			icons.put("dag 9", yes_ico);
+		}
+		else icons.put("dag 9", no_ico);
+		
+		if(!mc.get(9).equals(ci)){
+			icons.put("dag 10", yes_ico);
+		}
+		else icons.put("dag 10", no_ico);
+		
+		if(!mc.get(10).equals(ci)){
+			icons.put("dag 11", yes_ico);
+		}
+		else icons.put("dag 11", no_ico);
+		
+		if(!mc.get(11).equals(ci)){
+			icons.put("dag 12", yes_ico);
+		}
+		else icons.put("dag 12", no_ico);
+		
+		if(!mc.get(12).equals(ci)){
+			icons.put("dag 13", yes_ico);
+		}
+		else icons.put("dag 13", no_ico);
+		
+		if(!mc.get(13).equals(ci)){
+			icons.put("dag 14", yes_ico);
+		}
+		else icons.put("dag 14", no_ico);
+		list.setCellRenderer(new IconListRenderer(icons));
 	}
 }
 
