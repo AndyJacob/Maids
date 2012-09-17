@@ -187,9 +187,23 @@ public class SalatGUI extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				if(e.getClickCount() == 2){
 					if(list.getSelectedIndex() == 0){
-						for(int i=1; i<gemtListe_1.size(); i++){
-							gemtListe_1.get(i);
-						}
+						gemtListe_1.get(1);
+						catagory_combo_1.setSelectedIndex((int) gemtListe_1.get(1));
+//						catagory_combo_2.setSelectedIndex();
+//						catagory_combo_3.setSelectedIndex();
+//						catagory_combo_4.setSelectedIndex();
+//						catagory_combo_5.setSelectedIndex();
+//						catagory_combo_6.setSelectedIndex();
+//						catagory_combo_7.setSelectedIndex();
+//						catagory_combo_8.setSelectedIndex();
+						ingredient_combo_1.setSelectedIndex((int) gemtListe_1.get(2));
+//						ingredient_combo_2.setSelectedIndex(index_random_2);
+//						ingredient_combo_3.setSelectedIndex(index_random_3);
+//						ingredient_combo_4.setSelectedIndex(index_random_4);
+//						ingredient_combo_5.setSelectedIndex(index_random_5);
+//						ingredient_combo_6.setSelectedIndex(index_random_6);
+//						ingredient_combo_7.setSelectedIndex(index_random_7);
+//						ingredient_combo_8.setSelectedIndex(index_random_8);
 					}
 				}
 			}
