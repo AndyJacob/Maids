@@ -137,6 +137,9 @@ public class SalatGUI extends JFrame {
 	private ArrayList gemtListe_13;
 	private ArrayList gemtListe_14;
 	private JButton btnCheck;
+	private ImageIcon no_ico;
+	private ImageIcon meat_ico;
+	private ImageIcon yes_ico;
 
 	/**
 	 * Launch the application.
@@ -215,6 +218,18 @@ public class SalatGUI extends JFrame {
 
 		loadArray("gemtListe_1", gemtListe_1);
 		loadArray("gemtListe_2", gemtListe_2);
+		loadArray("gemtListe_3", gemtListe_3);
+		loadArray("gemtListe_4", gemtListe_4);
+		loadArray("gemtListe_5", gemtListe_5);
+		loadArray("gemtListe_6", gemtListe_6);
+		loadArray("gemtListe_7", gemtListe_7);
+		loadArray("gemtListe_8", gemtListe_8);
+		loadArray("gemtListe_9", gemtListe_9);
+		loadArray("gemtListe_10", gemtListe_10);
+		loadArray("gemtListe_11", gemtListe_11);
+		loadArray("gemtListe_12", gemtListe_12);
+		loadArray("gemtListe_13", gemtListe_13);
+		loadArray("gemtListe_14", gemtListe_14);
 
 		list = new JList();
 		list.addMouseListener(new MouseAdapter() {
@@ -487,8 +502,9 @@ public class SalatGUI extends JFrame {
 			}
 		});
 		list.setSelectedIndex(0);
-		ImageIcon yes_ico = new ImageIcon("bin/assets/yes.png","");
-		ImageIcon no_ico = new ImageIcon("bin/assets/no.png","");
+		yes_ico = new ImageIcon("bin/assets/yes.png","");
+		no_ico = new ImageIcon("bin/assets/no.png","");
+		meat_ico = new ImageIcon("bin/assets/meat.png","");
 		Map<Object, Icon> icons = new HashMap<Object, Icon>();
 		icons.put("dag 1", yes_ico);
 		icons.put("dag 2", yes_ico);
@@ -961,8 +977,8 @@ public class SalatGUI extends JFrame {
 		btnCheck = new JButton("Check");
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				meat_collision();
 				checkCollisions();
+//				meat_collision();
 			}
 		});
 		buttom_panel1.add(btnCheck, "2, 10");
@@ -1988,8 +2004,9 @@ public class SalatGUI extends JFrame {
 		}
 		else icons.put("dag 14", no_ico);
 		tempArray.clear();
-
-		list.setCellRenderer(new IconListRenderer(icons));
+		
+		meat_collision(icons);
+//		list.setCellRenderer(new IconListRenderer(icons));
 	}
 	public void SaveArray() throws IOException {
 
@@ -2174,7 +2191,7 @@ public class SalatGUI extends JFrame {
 			}
 		}
 	}
-	public void meat_collision(){
+	public void meat_collision(Map<Object, Icon> icons){
 		Object ci = ingredient_combo_1.getSelectedIndex();
 
 		ArrayList mc = new ArrayList();
@@ -2235,79 +2252,63 @@ public class SalatGUI extends JFrame {
 		}
 		else mc.add(999);
 
-		ImageIcon yes_ico = new ImageIcon("bin/assets/yes.png","");
-		ImageIcon meat_ico = new ImageIcon("bin/assets/meat.png","");
-		Map<Object, Icon> icons = new HashMap<Object, Icon>();
+//		Map<Object, Icon> icons = new HashMap<Object, Icon>();
+		System.out.println(icons.get("dag 1").getIconHeight());
+		if(mc.get(0).equals(ci) && icons.get("dag 1").getIconHeight() == 16){
+			icons.put("dag 1", meat_ico);
+		}
 
-		if(!mc.get(0).equals(ci)){
-			icons.put("dag 1", yes_ico);
+		if(mc.get(1).equals(ci) && icons.get("dag 2").getIconHeight() == 16){
+			icons.put("dag 2", meat_ico);
 		}
-		else icons.put("dag 1", meat_ico);
 
-		if(!mc.get(1).equals(ci)){
-			icons.put("dag 2", yes_ico);
+		if(mc.get(2).equals(ci) && icons.get("dag 3").getIconHeight() == 16){
+			icons.put("dag 3", meat_ico);
 		}
-		else icons.put("dag 2", meat_ico);
-
-		if(!mc.get(2).equals(ci)){
-			icons.put("dag 3", yes_ico);
-		}
-		else icons.put("dag 3", meat_ico);
 		
-		if(!mc.get(3).equals(ci)){
-			icons.put("dag 4", yes_ico);
+		if(mc.get(3).equals(ci) && icons.get("dag 4").getIconHeight() == 16){
+			icons.put("dag 4", meat_ico);
 		}
-		else icons.put("dag 4", meat_ico);
 		
-		if(!mc.get(4).equals(ci)){
-			icons.put("dag 5", yes_ico);
+		if(mc.get(4).equals(ci) && icons.get("dag 5").getIconHeight() == 16){
+			icons.put("dag 5", meat_ico);
 		}
-		else icons.put("dag 5", meat_ico);
 		
-		if(!mc.get(5).equals(ci)){
-			icons.put("dag 6", yes_ico);
+		if(mc.get(5).equals(ci) && icons.get("dag 6").getIconHeight() == 16){
+			icons.put("dag 6", meat_ico);
 		}
-		else icons.put("dag 6", meat_ico);
 		
-		if(!mc.get(6).equals(ci)){
-			icons.put("dag 7", yes_ico);
+		if(mc.get(6).equals(ci) && icons.get("dag 7").getIconHeight() == 16){
+			icons.put("dag 7", meat_ico);
 		}
-		else icons.put("dag 7", meat_ico);
 		
-		if(!mc.get(7).equals(ci)){
-			icons.put("dag 8", yes_ico);
+		if(mc.get(7).equals(ci) && icons.get("dag 8").getIconHeight() == 16){
+			icons.put("dag 8", meat_ico);
 		}
-		else icons.put("dag 8", meat_ico);
 		
-		if(!mc.get(8).equals(ci)){
-			icons.put("dag 9", yes_ico);
+		if(mc.get(8).equals(ci) && icons.get("dag 9").getIconHeight() == 16){
+			icons.put("dag 9", meat_ico);
 		}
-		else icons.put("dag 9", meat_ico);
 		
-		if(!mc.get(9).equals(ci)){
-			icons.put("dag 10", yes_ico);
+		if(mc.get(9).equals(ci) && icons.get("dag 10").getIconHeight() == 16){
+			icons.put("dag 10", meat_ico);
 		}
-		else icons.put("dag 10", meat_ico);
 		
-		if(!mc.get(10).equals(ci)){
-			icons.put("dag 11", yes_ico);
+		if(mc.get(10).equals(ci) && icons.get("dag 11").getIconHeight() == 16){
+			icons.put("dag 11", meat_ico);
 		}
-		else icons.put("dag 11", meat_ico);
 		
-		if(!mc.get(11).equals(ci)){
-			icons.put("dag 12", yes_ico);
+		if(mc.get(11).equals(ci) && icons.get("dag 12").getIconHeight() == 16){
+			icons.put("dag 12", meat_ico);
 		}
-		else icons.put("dag 12", meat_ico);
 		
-		if(!mc.get(12).equals(ci)){
-			icons.put("dag 13", yes_ico);
+		if(mc.get(12).equals(ci) && icons.get("dag 13").getIconHeight() == 16){
+			icons.put("dag 13", meat_ico);
 		}
-		else icons.put("dag 13", meat_ico);
 		
-		if(!mc.get(13).equals(ci)){
-			icons.put("dag 14", yes_ico);
+		if(mc.get(13).equals(ci) && icons.get("dag 14").getIconHeight() == 16){
+			icons.put("dag 14", meat_ico);
 		}
-		else icons.put("dag 14", meat_ico);
 		list.setCellRenderer(new IconListRenderer(icons));
 	}
 }
