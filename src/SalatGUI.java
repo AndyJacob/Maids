@@ -961,8 +961,8 @@ public class SalatGUI extends JFrame {
 		btnCheck = new JButton("Check");
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				checkCollisions();
 				meat_collision();
+				checkCollisions();
 			}
 		});
 		buttom_panel1.add(btnCheck, "2, 10");
