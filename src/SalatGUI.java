@@ -2252,8 +2252,6 @@ public class SalatGUI extends JFrame {
 		}
 		else mc.add(999);
 
-//		Map<Object, Icon> icons = new HashMap<Object, Icon>();
-		System.out.println(icons.get("dag 1").getIconHeight());
 		if(mc.get(0).equals(ci) && icons.get("dag 1").getIconHeight() == 16){
 			icons.put("dag 1", meat_ico);
 		}
